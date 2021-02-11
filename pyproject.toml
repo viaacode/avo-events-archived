@@ -6,8 +6,8 @@ authors = ["rudolf <rudolf.degeijter@meemoo.be>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-uWSGI = "^2.0.19"
-Flask = "^1.1.2"
+uvicorn = {extras = ["standard"], version = "^0.13.3"}
+fastapi = "^0.63.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
