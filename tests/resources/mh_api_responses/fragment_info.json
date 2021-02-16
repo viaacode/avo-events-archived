@@ -1,0 +1,137 @@
+{
+    "Descriptive": {
+        "Title": "Something",
+        "Description": "Something descriptive",
+        "OriginalFilename": "filename.mxf",
+        "UploadedBy": "bulkupload@testbeeld",
+        "KeyframeStart": 0,
+        "CreationDate": "2021:02:15 13:45:46.436",
+        "RightsOwner": "© testbeeld"
+    },
+    "RightsManagement": {
+        "Permissions": {
+            "Read": [
+                "abc-def-ghi-jkl"
+            ],
+            "Write": [
+                "abc-def-ghi-jkl"
+            ],
+            "Export": [
+                "abc-def-ghi-jkl"
+            ]
+        }
+    },
+    "Internal": {
+        "MediaObjectId": "123456789101112131415161718192021222324252627282",
+        "FragmentId": "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525",
+        "OriginalStatus": "completed",
+        "BrowseStatus": "completed",
+        "ArchiveStatus": "on_disk",
+        "UploadedById": "an_id",
+        "OrganisationId": "1",
+        "IsInIngestSpace": false,
+        "DepartmentId": "department_id",
+        "IsFragment": false,
+        "HasKeyframes": true,
+        "ContainsGeoData": false,
+        "PathToKeyframe": "keyframe1.jpg",
+        "PathToKeyframeThumb": "keyframe1.jpg",
+        "PathToVideo": "browse.mp4",
+        "Browses": {
+            "Browse": [
+                {}
+            ]
+        },
+        "IngestSpaceId": null
+    },
+    "Administrative": {
+        "OrganisationName": "testbeeld",
+        "LastModifiedDate": "2021-02-16T15:54:15Z",
+        "ExternalId": "external_id",
+        "ArchiveDate": "2021:02:16 16:51:44",
+        "Type": "video",
+        "DepartmentName": "testbeeld",
+        "Workflow": "s3",
+        "IsSynchronized": false,
+        "OrganisationLongName": "testbeeld",
+        "RecordType": "Record",
+        "OrganisationExternalId": "OR-xxxxxx",
+        "RecordStatus": "New",
+        "PublicationDate": "2021-02-16T15:51:42.288000Z",
+        "IsOriginal": true,
+        "IsPreservation": false,
+        "IsAccess": false,
+        "IngestTape": null
+    },
+    "Dynamic": {
+        "dc_source": "s3_filename.mxf",
+        "PID": "external_id",
+        "s3_bucket": "ingest",
+        "CP": "vrt",
+        "object_use": "archive_master",
+        "s3_domain": "s3-qas.viaa.be",
+        "s3_object_key": "s3_filename.mxf",
+        "ie_type": "n/a",
+        "CP_id": "OR-xxxxxx",
+        "md5_viaa": "571fbacd0d2e57882cf4bf23315e1653",
+        "object_level": "file",
+        "s3_object_owner": "Test Tester+or-xxxxxx",
+        "sp_name": "s3"
+    },
+    "Technical": {
+        "PronomId": "fmt/200",
+        "OriginalExtension": "mxf",
+        "FileSize": 1854308802,
+        "Md5": "571fbacd0d2e57882cf4bf23315e1653",
+        "MimeType": "application/mxf",
+        "Width": 1920,
+        "Height": 1080,
+        "ImageSize": "1920x1080",
+        "ImageQuality": "high",
+        "ImageOrientation": "landscape",
+        "VideoTechnical": "h264 1920x1080 25fps 118561943bps",
+        "AudioTechnical": "pcm_s24le 4ch 48000Hz 4608000bps",
+        "VideoFormat": "AVC-Intra",
+        "DurationTimeCode": "00:02:05.120",
+        "StartTimeCode": "00:00:00.000",
+        "EndTimeCode": "00:02:05.120",
+        "DurationFrames": 3128,
+        "StartFrames": 0,
+        "EndFrames": 3128,
+        "BitRate": 118561943,
+        "VideoCodec": "h264",
+        "VideoFps": "25",
+        "VideoBitRate": 118561943,
+        "AudioCodec": "pcm_s24le",
+        "AudioChannels": 4,
+        "AudioSampleRate": 48000,
+        "AudioBitRate": 4608000,
+        "AudioTracks": {
+            "Track": [
+                {
+                    "Channels": 1
+                },
+                {
+                    "Channels": 1
+                },
+                {
+                    "Channels": 1
+                },
+                {
+                    "Channels": 1
+                }
+            ]
+        },
+        "EssenceOffset": 2107178,
+        "EditUnitByteSize": 592136,
+        "FramesPerEditUnit": 1,
+        "EditRate": "25",
+        "IndexEditRate": "25"
+    },
+    "Context": {
+        "IsEditable": true,
+        "IsDeletable": true,
+        "IsPublic": false,
+        "IsExportable": true
+    }
+}

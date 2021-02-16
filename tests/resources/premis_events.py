@@ -3,7 +3,7 @@
 
 import os
 
-folder = os.path.join(os.getcwd(), "tests", "resources")
+folder = os.path.join(os.getcwd(), "tests", "resources", "premis_events")
 
 
 def _load_resource(filename):
