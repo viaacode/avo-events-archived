@@ -6,6 +6,11 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "atomicwrites"
 version = "1.4.0"
@@ -13,6 +18,11 @@ description = "Atomic file writes."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "attrs"
@@ -28,6 +38,11 @@ docs = ["furo", "sphinx", "zope.interface"]
 tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "black"
 version = "20.8b1"
@@ -40,16 +55,47 @@ python-versions = ">=3.6"
 appdirs = "*"
 click = ">=7.1.2"
 dataclasses = {version = ">=0.6", markers = "python_version < \"3.7\""}
-mypy-extensions = ">=0.4.3"
+mypy_extensions = ">=0.4.3"
 pathspec = ">=0.6,<1"
 regex = ">=2020.1.8"
 toml = ">=0.10.1"
 typed-ast = ">=1.4.0"
-typing-extensions = ">=3.7.4"
+typing_extensions = ">=3.7.4"
 
 [package.extras]
 colorama = ["colorama (>=0.4.3)"]
 d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "certifi"
+version = "2020.12.5"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "chardet"
+version = "4.0.0"
+description = "Universal encoding detector for Python 2 and 3"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "click"
@@ -59,6 +105,11 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "colorama"
 version = "0.4.4"
@@ -67,6 +118,11 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "dataclasses"
 version = "0.8"
@@ -74,6 +130,11 @@ description = "A backport of the dataclasses module for Python 3.6"
 category = "main"
 optional = false
 python-versions = ">=3.6, <3.7"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "fastapi"
@@ -93,6 +154,11 @@ dev = ["python-jose[cryptography] (>=3.1.0,<4.0.0)", "passlib[bcrypt] (>=1.7.2,<
 doc = ["mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=6.1.4,<7.0.0)", "markdown-include (>=0.5.1,<0.6.0)", "mkdocs-markdownextradata-plugin (>=0.1.7,<0.2.0)", "typer-cli (>=0.0.9,<0.0.10)", "pyyaml (>=5.3.1,<6.0.0)"]
 test = ["pytest (==5.4.3)", "pytest-cov (==2.10.0)", "pytest-asyncio (>=0.14.0,<0.15.0)", "mypy (==0.790)", "flake8 (>=3.8.3,<4.0.0)", "black (==20.8b1)", "isort (>=5.0.6,<6.0.0)", "requests (>=2.24.0,<3.0.0)", "httpx (>=0.14.0,<0.15.0)", "email_validator (>=1.1.1,<2.0.0)", "sqlalchemy (>=1.3.18,<2.0.0)", "peewee (>=3.13.3,<4.0.0)", "databases[sqlite] (>=0.3.2,<0.4.0)", "orjson (>=3.2.1,<4.0.0)", "async_exit_stack (>=1.0.1,<2.0.0)", "async_generator (>=1.10,<2.0.0)", "python-multipart (>=0.0.5,<0.0.6)", "aiofiles (>=0.5.0,<0.6.0)", "flask (>=1.1.2,<2.0.0)"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "flake8"
 version = "3.8.4"
@@ -107,6 +173,11 @@ mccabe = ">=0.6.0,<0.7.0"
 pycodestyle = ">=2.6.0a1,<2.7.0"
 pyflakes = ">=2.2.0,<2.3.0"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "h11"
 version = "0.12.0"
@@ -114,6 +185,11 @@ description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
 category = "main"
 optional = false
 python-versions = ">=3.6"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "httptools"
@@ -125,6 +201,24 @@ python-versions = "*"
 
 [package.extras]
 test = ["Cython (==0.29.14)"]
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "idna"
+version = "2.10"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "importlib-metadata"
@@ -142,6 +236,11 @@ zipp = ">=0.5"
 docs = ["sphinx", "jaraco.packaging (>=8.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "pytest-enabler", "packaging", "pep517", "pyfakefs", "flufl.flake8", "pytest-black (>=0.3.7)", "pytest-mypy", "importlib-resources (>=1.3)"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "lxml"
 version = "4.6.2"
@@ -156,6 +255,11 @@ html5 = ["html5lib"]
 htmlsoup = ["beautifulsoup4"]
 source = ["Cython (>=0.29.7)"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "mccabe"
 version = "0.6.1"
@@ -163,6 +267,11 @@ description = "McCabe checker, plugin for flake8"
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "more-itertools"
@@ -172,6 +281,11 @@ category = "dev"
 optional = false
 python-versions = ">=3.5"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "mypy-extensions"
 version = "0.4.3"
@@ -179,6 +293,11 @@ description = "Experimental type system extensions for programs checked with the
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "packaging"
@@ -191,6 +310,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 [package.dependencies]
 pyparsing = ">=2.0.2"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "pathspec"
 version = "0.8.1"
@@ -198,6 +322,11 @@ description = "Utility library for gitignore style pattern matching of file path
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "pluggy"
@@ -213,6 +342,11 @@ importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 [package.extras]
 dev = ["pre-commit", "tox"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "py"
 version = "1.10.0"
@@ -221,6 +355,11 @@ category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "pycodestyle"
 version = "2.6.0"
@@ -228,6 +367,11 @@ description = "Python style guide checker"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "pydantic"
@@ -245,6 +389,11 @@ dotenv = ["python-dotenv (>=0.10.4)"]
 email = ["email-validator (>=1.0.3)"]
 typing_extensions = ["typing-extensions (>=3.7.2)"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "pyflakes"
 version = "2.2.0"
@@ -253,6 +402,11 @@ category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "pyparsing"
 version = "2.4.7"
@@ -260,6 +414,11 @@ description = "Python parsing module"
 category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "pytest"
@@ -284,6 +443,11 @@ wcwidth = "*"
 checkqa-mypy = ["mypy (==v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "python-dotenv"
 version = "0.15.0"
@@ -295,6 +459,24 @@ python-versions = "*"
 [package.extras]
 cli = ["click (>=5.0)"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "python-json-logger"
+version = "2.0.1"
+description = "A python library adding a json log formatter"
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "pyyaml"
 version = "5.4.1"
@@ -303,6 +485,11 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "regex"
 version = "2020.11.13"
@@ -310,6 +497,34 @@ description = "Alternative regular expression module, to replace re."
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "requests"
+version = "2.25.1"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+chardet = ">=3.0.2,<5"
+idna = ">=2.5,<3"
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
+socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "starlette"
@@ -322,6 +537,32 @@ python-versions = ">=3.6"
 [package.extras]
 full = ["aiofiles", "graphene", "itsdangerous", "jinja2", "python-multipart", "pyyaml", "requests", "ujson"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "structlog"
+version = "20.2.0"
+description = "Structured Logging for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+typing-extensions = {version = "*", markers = "python_version < \"3.8\""}
+
+[package.extras]
+dev = ["coverage", "freezegun (>=0.2.8)", "pretend", "pytest-asyncio", "pytest-randomly", "pytest (>=6.0)", "simplejson", "furo", "sphinx", "sphinx-toolbox", "twisted", "pre-commit"]
+docs = ["furo", "sphinx", "sphinx-toolbox", "twisted"]
+tests = ["coverage", "freezegun (>=0.2.8)", "pretend", "pytest-asyncio", "pytest-randomly", "pytest (>=6.0)", "simplejson"]
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "toml"
 version = "0.10.2"
@@ -329,6 +570,11 @@ description = "Python Library for Tom's Obvious, Minimal Language"
 category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "typed-ast"
@@ -338,6 +584,11 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "typing-extensions"
 version = "3.7.4.3"
@@ -345,6 +596,29 @@ description = "Backported and Experimental Type Hints for Python 3.5+"
 category = "main"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "urllib3"
+version = "1.26.3"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+
+[package.extras]
+brotli = ["brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "uvicorn"
@@ -369,6 +643,11 @@ websockets = {version = ">=8.0.0,<9.0.0", optional = true, markers = "extra == \
 [package.extras]
 standard = ["websockets (>=8.0.0,<9.0.0)", "watchgod (>=0.6,<0.7)", "python-dotenv (>=0.13)", "PyYAML (>=5.1)", "httptools (>=0.1.0,<0.2.0)", "uvloop (>=0.14.0)", "colorama (>=0.4)"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "uvloop"
 version = "0.15.0"
@@ -378,9 +657,32 @@ optional = false
 python-versions = "*"
 
 [package.extras]
-dev = ["Cython (>=0.29.20,<0.30.0)", "pytest (>=3.6.0)", "Sphinx (>=1.7.3,<1.8.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx-rtd-theme (>=0.2.4,<0.3.0)", "aiohttp", "flake8 (>=3.8.4,<3.9.0)", "psutil", "pycodestyle (>=2.6.0,<2.7.0)", "pyOpenSSL (>=19.0.0,<19.1.0)", "mypy (>=0.800)"]
-docs = ["Sphinx (>=1.7.3,<1.8.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx-rtd-theme (>=0.2.4,<0.3.0)"]
+dev = ["Cython (>=0.29.20,<0.30.0)", "pytest (>=3.6.0)", "Sphinx (>=1.7.3,<1.8.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx_rtd_theme (>=0.2.4,<0.3.0)", "aiohttp", "flake8 (>=3.8.4,<3.9.0)", "psutil", "pycodestyle (>=2.6.0,<2.7.0)", "pyOpenSSL (>=19.0.0,<19.1.0)", "mypy (>=0.800)"]
+docs = ["Sphinx (>=1.7.3,<1.8.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx_rtd_theme (>=0.2.4,<0.3.0)"]
 test = ["aiohttp", "flake8 (>=3.8.4,<3.9.0)", "psutil", "pycodestyle (>=2.6.0,<2.7.0)", "pyOpenSSL (>=19.0.0,<19.1.0)", "mypy (>=0.800)"]
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
+[[package]]
+name = "viaa-chassis"
+version = "0.2.0rc1"
+description = "meemoo Chassis"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+python-json-logger = ">=0.1.11"
+pyyaml = ">=5.1.2"
+structlog = ">=19.2.0"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "watchgod"
@@ -390,6 +692,11 @@ category = "main"
 optional = false
 python-versions = ">=3.5"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "wcwidth"
 version = "0.2.5"
@@ -398,6 +705,11 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [[package]]
 name = "websockets"
 version = "8.0.2"
@@ -405,6 +717,11 @@ description = "An implementation of the WebSocket Protocol (RFC 6455 & 7692)"
 category = "main"
 optional = false
 python-versions = ">=3.6"
+
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
 
 [[package]]
 name = "zipp"
@@ -418,10 +735,15 @@ python-versions = ">=3.6"
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
+[package.source]
+type = "legacy"
+url = "http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple"
+reference = "meemoo"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "404a2cb88d87a4181eb3d4c2f135c4331b2d53fa4b7530638477de8692751865"
+content-hash = "126550278f8bc63b668fdd48a19ba886c69e6e2170f20d137711eaec5b8a8505"
 
 [metadata.files]
 appdirs = [
@@ -438,6 +760,14 @@ attrs = [
 ]
 black = [
     {file = "black-20.8b1.tar.gz", hash = "sha256:1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"},
+]
+certifi = [
+    {file = "certifi-2020.12.5-py2.py3-none-any.whl", hash = "sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830"},
+    {file = "certifi-2020.12.5.tar.gz", hash = "sha256:1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"},
+]
+chardet = [
+    {file = "chardet-4.0.0-py2.py3-none-any.whl", hash = "sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5"},
+    {file = "chardet-4.0.0.tar.gz", hash = "sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"},
 ]
 click = [
     {file = "click-7.1.2-py2.py3-none-any.whl", hash = "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"},
@@ -476,6 +806,10 @@ httptools = [
     {file = "httptools-0.1.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:3592e854424ec94bd17dc3e0c96a64e459ec4147e6d53c0a42d0ebcef9cb9c5d"},
     {file = "httptools-0.1.1-cp38-cp38-win_amd64.whl", hash = "sha256:0a4b1b2012b28e68306575ad14ad5e9120b34fccd02a81eb08838d7e3bbb48be"},
     {file = "httptools-0.1.1.tar.gz", hash = "sha256:41b573cf33f64a8f8f3400d0a7faf48e1888582b6f6e02b82b9bd4f0bf7497ce"},
+]
+idna = [
+    {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
+    {file = "idna-2.10.tar.gz", hash = "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"},
 ]
 importlib-metadata = [
     {file = "importlib_metadata-3.4.0-py3-none-any.whl", hash = "sha256:ace61d5fc652dc280e7b6b4ff732a9c2d40db2c0f92bc6cb74e07b73d53a1771"},
@@ -592,6 +926,9 @@ python-dotenv = [
     {file = "python-dotenv-0.15.0.tar.gz", hash = "sha256:587825ed60b1711daea4832cf37524dfd404325b7db5e25ebe88c495c9f807a0"},
     {file = "python_dotenv-0.15.0-py2.py3-none-any.whl", hash = "sha256:0c8d1b80d1a1e91717ea7d526178e3882732420b03f08afea0406db6402e220e"},
 ]
+python-json-logger = [
+    {file = "python-json-logger-2.0.1.tar.gz", hash = "sha256:f26eea7898db40609563bed0a7ca11af12e2a79858632706d835a0f961b7d398"},
+]
 pyyaml = [
     {file = "PyYAML-5.4.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:3b2b1824fe7112845700f815ff6a489360226a5609b96ec2190a45e62a9fc922"},
     {file = "PyYAML-5.4.1-cp27-cp27m-win32.whl", hash = "sha256:129def1b7c1bf22faffd67b8f3724645203b79d8f4cc81f674654d9902cb4393"},
@@ -658,9 +995,17 @@ regex = [
     {file = "regex-2020.11.13-cp39-cp39-win_amd64.whl", hash = "sha256:a15f64ae3a027b64496a71ab1f722355e570c3fac5ba2801cafce846bf5af01d"},
     {file = "regex-2020.11.13.tar.gz", hash = "sha256:83d6b356e116ca119db8e7c6fc2983289d87b27b3fac238cfe5dca529d884562"},
 ]
+requests = [
+    {file = "requests-2.25.1-py2.py3-none-any.whl", hash = "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"},
+    {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
+]
 starlette = [
     {file = "starlette-0.13.6-py3-none-any.whl", hash = "sha256:bd2ffe5e37fb75d014728511f8e68ebf2c80b0fa3d04ca1479f4dc752ae31ac9"},
     {file = "starlette-0.13.6.tar.gz", hash = "sha256:ebe8ee08d9be96a3c9f31b2cb2a24dbdf845247b745664bd8a3f9bd0c977fdbc"},
+]
+structlog = [
+    {file = "structlog-20.2.0-py2.py3-none-any.whl", hash = "sha256:33dd6bd5f49355e52c1c61bb6a4f20d0b48ce0328cc4a45fe872d38b97a05ccd"},
+    {file = "structlog-20.2.0.tar.gz", hash = "sha256:af79dfa547d104af8d60f86eac12fb54825f54a46bc998e4504ef66177103174"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
@@ -703,6 +1048,10 @@ typing-extensions = [
     {file = "typing_extensions-3.7.4.3-py3-none-any.whl", hash = "sha256:7cb407020f00f7bfc3cb3e7881628838e69d8f3fcab2f64742a5e76b2f841918"},
     {file = "typing_extensions-3.7.4.3.tar.gz", hash = "sha256:99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"},
 ]
+urllib3 = [
+    {file = "urllib3-1.26.3-py2.py3-none-any.whl", hash = "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80"},
+    {file = "urllib3-1.26.3.tar.gz", hash = "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"},
+]
 uvicorn = [
     {file = "uvicorn-0.13.3-py3-none-any.whl", hash = "sha256:1079c50a06f6338095b4f203e7861dbff318dde5f22f3a324fc6e94c7654164c"},
     {file = "uvicorn-0.13.3.tar.gz", hash = "sha256:ef1e0bb5f7941c6fe324e06443ddac0331e1632a776175f87891c7bd02694355"},
@@ -718,6 +1067,10 @@ uvloop = [
     {file = "uvloop-0.15.0-cp39-cp39-manylinux2010_x86_64.whl", hash = "sha256:fab95c88d0c3694089c93a8c46fdab30117c4ce0d1afa2ab7d6f4d0607495857"},
     {file = "uvloop-0.15.0-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:2d76da5529025f9771855505cfde7bf16b9b0001e2fe05b0abf3e4fc01a5dfdb"},
     {file = "uvloop-0.15.0.tar.gz", hash = "sha256:1a503d5b49da6e3dd5607d6e533a5315b1caedbf629901807c65a23a09cad065"},
+]
+viaa-chassis = [
+    {file = "viaa-chassis-0.2.0rc1.tar.gz", hash = "md5:1933172b3bdf9568e77e772f1e10d7fd"},
+    {file = "viaa_chassis-0.2.0rc1-py3-none-any.whl", hash = "md5:99b71a35096b7683f9b900d5d1089523"},
 ]
 watchgod = [
     {file = "watchgod-0.6-py35.py36.py37-none-any.whl", hash = "sha256:59700dab7445aa8e6067a5b94f37bae90fc367554549b1ed2e9d0f4f38a90d2a"},
