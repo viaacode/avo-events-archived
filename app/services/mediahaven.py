@@ -99,9 +99,7 @@ class MediahavenService:
 
     @__authenticate
     def get_fragment(self, fragment_id: str) -> dict:
-        url: str = (
-            f'{self.cfg["mediahaven"]["host"]}/media/{fragment_id}'
-        )
+        url: str = f'{self.cfg["mediahaven"]["host"]}/media/{fragment_id}'
 
         headers: dict = {
             "Authorization": f"Bearer {self.token_info['access_token']}",

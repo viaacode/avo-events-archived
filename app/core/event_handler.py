@@ -3,6 +3,7 @@ from app.services.mediahaven import MediahavenService
 from viaa.configuration import ConfigParser
 import asyncio
 
+
 async def handle_event(premis_event: PremisEvent) -> None:
     config = ConfigParser().app_cfg
 
