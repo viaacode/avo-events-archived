@@ -5,7 +5,7 @@ from app.core.event_handler import handle_event
 router = APIRouter()
 
 
-@router.post("/")
+@router.post("/", status_code=202)
 async def handle_events(request: Request, background_tasks: BackgroundTasks):
     """
     Returns OK if the xml parsing didn't crash.
@@ -17,4 +17,4 @@ async def handle_events(request: Request, background_tasks: BackgroundTasks):
     for event in events:
         background_tasks.add_task(handle_event, event)
 
-    return "OK"
+    return {"message": f"Updating {len(events)} item(s) with metadata from the original fragment in the background."}
