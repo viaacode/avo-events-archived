@@ -95,7 +95,7 @@ class MediahavenService:
         # If there is an HTTP error, raise it
         response.raise_for_status()
 
-        return response
+        return response.text
 
     @__authenticate
     def get_fragment(self, fragment_id: str) -> dict:

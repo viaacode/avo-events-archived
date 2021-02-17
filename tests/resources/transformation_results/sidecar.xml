@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mhs:Sidecar xmlns:mhs="https://zeticon.mediahaven.com/metadata/20.3/mhs/" xmlns:mh="https://zeticon.mediahaven.com/metadata/20.3/mh/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="20.3">
+  <mhs:Descriptive>
+    <mh:Title>Something</mh:Title>
+    <mh:Description>Something descriptive</mh:Description>
+  </mhs:Descriptive>
+  <mhs:Dynamic>
+    <dc_identifier_localids>
+                    <MEDIA_ID>MEDIA_ID</MEDIA_ID>
+                </dc_identifier_localids>
+    <dc_titles>
+                    <alternatief>Feed</alternatief>
+                    <serie>Sportarchief</serie>
+                </dc_titles>
+    <dc_contributors>
+                    <archivaris>Rudolf</archivaris>
+                </dc_contributors>
+    <dc_publishers>
+                    <Distributeur>Ten</Distributeur>
+                </dc_publishers>
+    <dc_subjects>
+                    <Trefwoord>VOETBAL</Trefwoord>
+                    <Trefwoord>COMPETITIE</Trefwoord>
+                    <Trefwoord>SPANJE</Trefwoord>
+                    <Trefwoord>REAL MADRID</Trefwoord>
+                    <Trefwoord>VALENCIA</Trefwoord>
+                    <Trefwoord>BENZEMA KARIM</Trefwoord>
+                    <Trefwoord>KROOS TONI</Trefwoord>
+                </dc_subjects>
+    <dc_rights_rightsHolders>
+                    <Licentiehouder/>
+                </dc_rights_rightsHolders>
+    <dc_source>s3_filename_origineel.mxf</dc_source>
+    <ie_type>video</ie_type>
+    <type_viaa>video</type_viaa>
+    <object_level>ie</object_level>
+    <sp_name>s3</sp_name>
+    <dcterms_created>2021-02-14</dcterms_created>
+    <object_use>archive_master</object_use>
+    <dc_description_categorie>sport</dc_description_categorie>
+    <dc_identifier_localid>localid</dc_identifier_localid>
+    <dcterms_issued>2021-02-14</dcterms_issued>
+    <dc_description_programma>Something descriptive</dc_description_programma>
+    <ebu_objectType>footage</ebu_objectType>
+    <Original_CP>testbeeld</Original_CP>
+    <Original_CP_id>OR-xxxxxxx</Original_CP_id>
+    <dc_relations type="list">
+      <is_verwant_aan>PID_OF_ORIGINAL_FRAGMENT</is_verwant_aan>
+    </dc_relations>
+  </mhs:Dynamic>
+</mhs:Sidecar>

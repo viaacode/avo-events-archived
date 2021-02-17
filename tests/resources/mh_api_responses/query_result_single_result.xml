@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <TotalNrOfResults>1</TotalNrOfResults>
@@ -143,10 +142,10 @@
                     <serie>Sportarchief</serie>
                 </dc_titles>
                 <dc_contributors>
-                    <archivaris>Bouton Gillian</archivaris>
+                    <archivaris>Rudolf</archivaris>
                 </dc_contributors>
                 <dc_publishers>
-                    <Distributeur>Eleven</Distributeur>
+                    <Distributeur>Ten</Distributeur>
                 </dc_publishers>
                 <dc_subjects>
                     <Trefwoord>VOETBAL</Trefwoord>
