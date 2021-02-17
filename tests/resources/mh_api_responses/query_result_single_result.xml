@@ -1,1 +1,192 @@
 
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <TotalNrOfResults>1</TotalNrOfResults>
+    <StartIndex>0</StartIndex>
+    <MediaDataList>
+        <mhs:Sidecar xmlns:mh="https://zeticon.mediahaven.com/metadata/20.3/mh/"
+            xmlns:mhs="https://zeticon.mediahaven.com/metadata/20.3/mhs/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="20.3" xsi:schemaLocation="https://zeticon.mediahaven.com/metadata/20.3/mhs/ https://zeticon.mediahaven.com/metadata/20.3/mhs.xsd https://zeticon.mediahaven.com/metadata/20.3/mh/ https://zeticon.mediahaven.com/metadata/20.3/mh.xsd">
+            <mhs:Descriptive>
+                <mh:Title>Something</mh:Title>
+                <mh:Description>Something descriptive</mh:Description>
+                <mh:OriginalFilename>OriginalFilename.mxf</mh:OriginalFilename>
+                <mh:UploadedBy>bulkupload@testbeeld</mh:UploadedBy>
+                <mh:KeyframeStart>0000000000</mh:KeyframeStart>
+                <mh:CreationDate>2021:02:15 13:29:27.076</mh:CreationDate>
+                <mh:RightsOwner>© testbeeld</mh:RightsOwner>
+            </mhs:Descriptive>
+            <mhs:Administrative>
+                <mh:OrganisationName>testbeeld</mh:OrganisationName>
+                <mh:LastModifiedDate>2021-02-17T10:21:19Z</mh:LastModifiedDate>
+                <mh:ExternalId>ms3jx0t169</mh:ExternalId>
+                <mh:ArchiveDate>2021:02:16 08:30:17</mh:ArchiveDate>
+                <mh:Type>videofragment</mh:Type>
+                <mh:DepartmentName>testbeeld</mh:DepartmentName>
+                <mh:Workflow>s3</mh:Workflow>
+                <mh:IsSynchronized>false</mh:IsSynchronized>
+                <mh:OrganisationLongName>testbeeld</mh:OrganisationLongName>
+                <mh:RecordType>Record</mh:RecordType>
+                <mh:OrganisationExternalId>OR-xxxxxx</mh:OrganisationExternalId>
+                <mh:RecordStatus>New</mh:RecordStatus>
+                <mh:PublicationDate>2021-02-16T07:30:16.011000Z</mh:PublicationDate>
+                <mh:IsOriginal>true</mh:IsOriginal>
+                <mh:IsPreservation>false</mh:IsPreservation>
+                <mh:IsAccess>false</mh:IsAccess>
+            </mhs:Administrative>
+            <mhs:Technical>
+                <mh:PronomId>fmt/200</mh:PronomId>
+                <mh:OriginalExtension>mxf</mh:OriginalExtension>
+                <mh:FileSize>106787788818</mh:FileSize>
+                <mh:Md5>90fcb5ca6fb168af414a4163ef04115d</mh:Md5>
+                <mh:MimeType>application/mxf</mh:MimeType>
+                <mh:Width>1920</mh:Width>
+                <mh:Height>1080</mh:Height>
+                <mh:ImageSize>1920x1080</mh:ImageSize>
+                <mh:ImageQuality>high</mh:ImageQuality>
+                <mh:ImageOrientation>landscape</mh:ImageOrientation>
+                <mh:VideoTechnical>h264 1920x1080 25fps 123053633bps</mh:VideoTechnical>
+                <mh:AudioTechnical>pcm_s24le 8ch 48000Hz 9216000bps</mh:AudioTechnical>
+                <mh:VideoFormat>AVC-Intra</mh:VideoFormat>
+                <mh:DurationTimeCode>01:55:42.520</mh:DurationTimeCode>
+                <mh:StartTimeCode>16:11:09.440</mh:StartTimeCode>
+                <mh:EndTimeCode>18:06:51.960</mh:EndTimeCode>
+                <mh:DurationFrames>0000173563</mh:DurationFrames>
+                <mh:StartFrames>0001456736</mh:StartFrames>
+                <mh:EndFrames>0001630299</mh:EndFrames>
+                <mh:BitRate>123053633</mh:BitRate>
+                <mh:VideoCodec>h264</mh:VideoCodec>
+                <mh:VideoFps>25</mh:VideoFps>
+                <mh:VideoBitRate>123053633</mh:VideoBitRate>
+                <mh:AudioCodec>pcm_s24le</mh:AudioCodec>
+                <mh:AudioChannels>8</mh:AudioChannels>
+                <mh:AudioSampleRate>48000</mh:AudioSampleRate>
+                <mh:AudioBitRate>9216000</mh:AudioBitRate>
+                <mh:AudioTracks>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                    <mh:Track>
+                        <mh:Channels>1</mh:Channels>
+                    </mh:Track>
+                </mh:AudioTracks>
+                <mh:EssenceOffset>2111474</mh:EssenceOffset>
+                <mh:EditUnitByteSize>615256</mh:EditUnitByteSize>
+                <mh:FramesPerEditUnit>1</mh:FramesPerEditUnit>
+                <mh:EditRate>25</mh:EditRate>
+                <mh:IndexEditRate>25</mh:IndexEditRate>
+            </mhs:Technical>
+            <mhs:Internal>
+                <mh:MediaObjectId>031697a67e0c460fbdd6ccce0fe91f58c9a83978a4c34e59becf8accb370f866</mh:MediaObjectId>
+                <mh:FragmentId>031697a67e0c460fbdd6ccce0fe91f58c9a83978a4c34e59becf8accb370f866dc8e5e50340e49c6b30464ed08afc9d8</mh:FragmentId>
+                <mh:OriginalStatus>completed</mh:OriginalStatus>
+                <mh:BrowseStatus>completed</mh:BrowseStatus>
+                <mh:ArchiveStatus>on_tape</mh:ArchiveStatus>
+                <mh:UploadedById>UploadedById</mh:UploadedById>
+                <mh:OrganisationId>101</mh:OrganisationId>
+                <mh:IsInIngestSpace>false</mh:IsInIngestSpace>
+                <mh:DepartmentId>DepartmentId</mh:DepartmentId>
+                <mh:IsFragment>true</mh:IsFragment>
+                <mh:HasKeyframes>true</mh:HasKeyframes>
+                <mh:ContainsGeoData>false</mh:ContainsGeoData>
+                <mh:PathToKeyframe>keyframe1.jpg</mh:PathToKeyframe>
+                <mh:PathToKeyframeThumb>keyframe1.jpg</mh:PathToKeyframeThumb>
+                <mh:PathToVideo>browse.mp4</mh:PathToVideo>
+                <mh:Browses>
+                    <mh:Browse>
+                    </mh:Browse>
+                    <mh:Browse>
+                    </mh:Browse>
+                </mh:Browses>
+            </mhs:Internal>
+            <mhs:Structural>
+                <mh:MainFragment>031697a67e0c460fbdd6ccce0fe91f58c9a83978a4c34e59becf8accb370f86609ac26927f0a4c87a09dfb9a6fc0a421</mh:MainFragment>
+                <mh:FragmentDurationTimeCode>01:55:42.520</mh:FragmentDurationTimeCode>
+                <mh:FragmentStartTimeCode>00:00:00.000</mh:FragmentStartTimeCode>
+                <mh:FragmentEndTimeCode>01:55:42.520</mh:FragmentEndTimeCode>
+                <mh:FragmentDurationFrames>0000173563</mh:FragmentDurationFrames>
+                <mh:FragmentStartFrames>0000000000</mh:FragmentStartFrames>
+                <mh:FragmentEndFrames>0000173563</mh:FragmentEndFrames>
+                <mh:Versioning>
+                    <mh:Status>Untracked</mh:Status>
+                    <mh:Version>0000000001</mh:Version>
+                </mh:Versioning>
+            </mhs:Structural>
+            <mhs:RightsManagement>
+                <mh:Permissions>
+                </mh:Permissions>
+            </mhs:RightsManagement>
+            <mhs:Dynamic>
+                <dc_identifier_localids>
+                    <MEDIA_ID>MEDIA_ID</MEDIA_ID>
+                </dc_identifier_localids>
+                <dc_titles>
+                    <alternatief>Feed</alternatief>
+                    <serie>Sportarchief</serie>
+                </dc_titles>
+                <dc_contributors>
+                    <archivaris>Bouton Gillian</archivaris>
+                </dc_contributors>
+                <dc_publishers>
+                    <Distributeur>Eleven</Distributeur>
+                </dc_publishers>
+                <dc_subjects>
+                    <Trefwoord>VOETBAL</Trefwoord>
+                    <Trefwoord>COMPETITIE</Trefwoord>
+                    <Trefwoord>SPANJE</Trefwoord>
+                    <Trefwoord>REAL MADRID</Trefwoord>
+                    <Trefwoord>VALENCIA</Trefwoord>
+                    <Trefwoord>BENZEMA KARIM</Trefwoord>
+                    <Trefwoord>KROOS TONI</Trefwoord>
+                </dc_subjects>
+                <dc_rights_rightsHolders>
+                    <Licentiehouder></Licentiehouder>
+                </dc_rights_rightsHolders>
+                <dc_source>s3_filename_origineel.mxf</dc_source>
+                <s3_bucket>mam-highresvideo</s3_bucket>
+                <s3_domain>s3.viaa.be</s3_domain>
+                <ie_type>video</ie_type>
+                <md5_viaa>90fcb5ca6fb168af414a4163ef04115d</md5_viaa>
+                <type_viaa>video</type_viaa>
+                <object_level>ie</object_level>
+                <s3_object_owner>Test Tester+or-xxxxxx</s3_object_owner>
+                <sp_name>s3</sp_name>
+                <dcterms_created>2021-02-14</dcterms_created>
+                <PID>PID_OF_ORIGINAL_FRAGMENT</PID>
+                <CP>testbeeld</CP>
+                <object_use>archive_master</object_use>
+                <dc_description_categorie>sport</dc_description_categorie>
+                <s3_object_key>s3_filename_origineel.mxf</s3_object_key>
+                <CP_id>OR-xxxxxxx</CP_id>
+                <dc_identifier_localid>localid</dc_identifier_localid>
+                <dcterms_issued>2021-02-14</dcterms_issued>
+                <dc_description_programma>Something descriptive</dc_description_programma>
+                <ebu_objectType>footage</ebu_objectType>
+            </mhs:Dynamic>
+            <Context>
+                <IsEditable>true</IsEditable>
+                <IsDeletable>true</IsDeletable>
+                <IsPublic>false</IsPublic>
+                <IsExportable>true</IsExportable>
+            </Context>
+        </mhs:Sidecar>
+    </MediaDataList>
+</root>
