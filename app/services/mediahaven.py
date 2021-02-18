@@ -3,10 +3,9 @@
 
 import functools
 import time
-
-import requests
 import urllib
 
+import requests
 from requests.auth import HTTPBasicAuth
 from requests.exceptions import RequestException
 
@@ -42,7 +41,7 @@ class MediahavenService:
 
         return wrapper_authenticate
 
-    def __get_token(self) -> str:
+    def __get_token(self) -> dict:
         """Gets an OAuth token that can be used in mediahaven requests to authenticate."""
         user: str = self.cfg["mediahaven"]["username"]
         password: str = self.cfg["mediahaven"]["password"]
@@ -66,7 +65,7 @@ class MediahavenService:
         return token_info
 
     @__authenticate
-    def query(self, query_key_values) -> dict:
+    def query(self, query_key_values) -> bytes:
         headers: dict = {
             "Authorization": f"Bearer {self.token_info['access_token']}",
             "Accept": "application/vnd.mediahaven.v2+xml",
@@ -95,7 +94,7 @@ class MediahavenService:
         # If there is an HTTP error, raise it
         response.raise_for_status()
 
-        return response.text
+        return response.content
 
     @__authenticate
     def get_fragment(self, fragment_id: str) -> dict:
@@ -121,7 +120,7 @@ class MediahavenService:
         return response.json()
 
     @__authenticate
-    def update_metadata(self, fragment_id: str, sidecar: str) -> bool:
+    def update_metadata(self, fragment_id: str, sidecar: bytes) -> bool:
         url: str = f"{self.cfg['mediahaven']['host']}/media/{fragment_id}"
 
         headers: dict = {
@@ -141,5 +140,5 @@ class MediahavenService:
         # If there is an HTTP error, raise it
         response.raise_for_status()
 
-        # Mediahaven returns 204 if succesful
+        # Mediahaven returns 204 if successful
         return response.status_code == 204
