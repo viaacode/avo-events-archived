@@ -99,7 +99,7 @@ class MediahavenService:
 
     @__authenticate
     def get_fragment(self, fragment_id: str) -> dict:
-        url: str = f'{self.cfg["mediahaven"]["host"]}/media/{fragment_id}'
+        url: str = f"{self.cfg['mediahaven']['host']}/media/{fragment_id}"
 
         headers: dict = {
             "Authorization": f"Bearer {self.token_info['access_token']}",
@@ -119,3 +119,27 @@ class MediahavenService:
             raise MediaObjectNotFoundException(response.json())
 
         return response.json()
+
+    @__authenticate
+    def update_metadata(self, fragment_id: str, sidecar: str) -> bool:
+        url: str = f"{self.cfg['mediahaven']['host']}/media/{fragment_id}"
+
+        headers: dict = {
+            "Authorization": f"Bearer {self.token_info['access_token']}",
+            "Accept": "application/vnd.mediahaven.v2+json",
+        }
+
+        data: dict = {"metadata": sidecar, "reason": "Add original metadata."}
+
+        # Send the POST request, as multipart/form-data
+        response = requests.post(url, headers=headers, files=data)
+
+        if response.status_code == 401:
+            # AuthenticationException triggers a retry with a new token
+            raise AuthenticationException(response.text)
+
+        # If there is an HTTP error, raise it
+        response.raise_for_status()
+
+        # Mediahaven returns 204 if succesful
+        return response.status_code == 204
