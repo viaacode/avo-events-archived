@@ -3,3 +3,4 @@
 # code formatting. Black makes a best effort to keep lines under the max
 # length, but can go over in some cases.
 ignore = E501
+exclude = .git,__pycache__,__init__.py,.mypy_cache,.pytest_cache
