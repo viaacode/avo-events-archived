@@ -1,5 +1,3 @@
-import asyncio
-
 from viaa.configuration import ConfigParser
 
 from app.core.events_parser import PremisEvent

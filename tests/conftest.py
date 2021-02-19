@@ -2,8 +2,9 @@ from typing import Generator
 
 import pytest
 import requests
-from app.main import app
 from fastapi.testclient import TestClient
+
+from app.main import app
 
 
 @pytest.fixture(scope="module")

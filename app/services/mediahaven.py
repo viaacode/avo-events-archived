@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import functools
-import time
 import urllib
+from typing import Any, Callable, Dict
 
 import requests
 from requests.auth import HTTPBasicAuth
@@ -13,22 +13,18 @@ from requests.exceptions import RequestException
 class MediaObjectNotFoundException(Exception):
     """Exception raised when MediaHaven doesn't find a media object given the ID."""
 
-    pass
-
 
 class AuthenticationException(Exception):
     """Exception raised when authentication fails."""
 
-    pass
-
 
 class MediahavenService:
-    def __init__(self, config: dict = None):
-        self.cfg: dict = config
-        self.token_info = None
-        self.url = f'{self.cfg["mediahaven"]["host"]}/media/'
+    def __init__(self, config: dict):
+        self.cfg: Dict[str, Any] = config
+        self.token_info: Dict = {}
+        self.url = f"{self.cfg['mediahaven']['host']}/media/"
 
-    def __authenticate(function):
+    def __authenticate(function: Callable) -> Callable:
         @functools.wraps(function)
         def wrapper_authenticate(self, *args, **kwargs):
             if not self.token_info:
@@ -66,7 +62,7 @@ class MediahavenService:
 
     @__authenticate
     def query(self, query_key_values) -> bytes:
-        headers: dict = {
+        headers: Dict[str, str] = {
             "Authorization": f"Bearer {self.token_info['access_token']}",
             "Accept": "application/vnd.mediahaven.v2+xml",
         }
@@ -74,7 +70,7 @@ class MediahavenService:
         # Construct URL query parameters as "+(k1:v1) +(k2:v2) +(k3:v3) ..."
         query = " ".join([f'+({":".join(map(str, k_v))})' for k_v in query_key_values])
 
-        params_dict: dict = {
+        params_dict: Dict[str, str] = {
             "q": query,
         }
         # Encode the spaces in the query parameters as %20 and not +

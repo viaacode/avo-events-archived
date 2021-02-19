@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from io import BytesIO
+
 from lxml import etree
 
 # Constants
@@ -16,8 +17,6 @@ VALID_OUTCOME = "OK"
 
 class InvalidPremisEventException(Exception):
     """Valid XML but not a Premis event"""
-
-    pass
 
 
 class PremisEvent:

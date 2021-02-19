@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Request, BackgroundTasks
-from app.core.events_parser import PremisEvents
+from fastapi import APIRouter, BackgroundTasks, Request
+
 from app.core.event_handler import handle_event
+from app.core.events_parser import PremisEvents
 
 router = APIRouter()
 

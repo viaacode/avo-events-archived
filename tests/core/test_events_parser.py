@@ -2,21 +2,22 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from lxml.etree import XMLSyntaxError, fromstring as parse_xml_string
+from lxml.etree import XMLSyntaxError
+from lxml.etree import fromstring as parse_xml_string
 
-from tests.resources import (
-    single_premis_event,
-    single_premis_event_nok,
-    multi_premis_event,
-    invalid_premis_event,
-    invalid_xml_event,
-    single_event_no_external_id,
-    single_premis_event_archived_on_disk,
-)
 from app.core.events_parser import (
+    InvalidPremisEventException,
     PremisEvent,
     PremisEvents,
-    InvalidPremisEventException,
+)
+from tests.resources import (
+    invalid_premis_event,
+    invalid_xml_event,
+    multi_premis_event,
+    single_event_no_external_id,
+    single_premis_event,
+    single_premis_event_archived_on_disk,
+    single_premis_event_nok,
 )
 
 
@@ -91,13 +92,13 @@ def test_multi_event():
 
 
 def test_invalid_premis_event():
-    with pytest.raises(InvalidPremisEventException) as e:
-        p = PremisEvents(invalid_premis_event)
+    with pytest.raises(InvalidPremisEventException):
+        PremisEvents(invalid_premis_event)
 
 
 def test_invalid_xml_event():
-    with pytest.raises(XMLSyntaxError) as e:
-        p = PremisEvents(invalid_xml_event)
+    with pytest.raises(XMLSyntaxError):
+        PremisEvents(invalid_xml_event)
 
 
 def test_single_event_no_external_id():

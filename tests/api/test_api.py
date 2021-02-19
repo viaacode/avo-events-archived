@@ -3,17 +3,10 @@ import json
 from fastapi.testclient import TestClient
 from pytest_mock import MockerFixture
 
-from app.services.mediahaven import MediahavenService
 from tests.resources import (
     fragment_info,
-    invalid_premis_event,
-    invalid_xml_event,
-    multi_premis_event,
     query_result_single_result,
-    single_event_no_external_id,
     single_premis_event,
-    single_premis_event_archived_on_disk,
-    single_premis_event_nok,
 )
 
 
@@ -32,7 +25,7 @@ def test_handle_events(client: TestClient, mocker: MockerFixture) -> None:
     )
 
     response = client.post(
-        f"/event/",
+        "/event/",
         data=single_premis_event,
     )
 
