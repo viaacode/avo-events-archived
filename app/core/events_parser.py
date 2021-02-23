@@ -91,14 +91,9 @@ class PremisEvents:
     def _parse_events(self):
         """Parse possibly multiple events in the XML-DOM and return a list of
         DOM Premis-events"""
-        events = []
         elements = self.xml_tree.xpath(
             "/events/p:event", namespaces={"p": PREMIS_NAMESPACE}
         )
-        for element in elements:
-            events.append(PremisEvent(element))
-        if not events:
-            raise InvalidPremisEventException(
-                f'No events found at xpath "/events/p:event": Root tag=<{self.xml_tree.docinfo.root_name}>, encoding="{self.xml_tree.docinfo.encoding}"'
-            )
+        events = [event for event in (PremisEvent(element) for element in elements) if event.is_valid and event.has_valid_outcome]
+
         return events
