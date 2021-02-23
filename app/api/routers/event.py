@@ -1,9 +1,14 @@
 from fastapi import APIRouter, BackgroundTasks, Request
+from viaa.configuration import ConfigParser
+from viaa.observability import logging
 
 from app.core.event_handler import handle_event
 from app.core.events_parser import PremisEvents
 
 router = APIRouter()
+
+config = ConfigParser()
+log = logging.get_logger(__name__, config=config)
 
 
 @router.post("/", status_code=202)
@@ -14,6 +19,8 @@ async def handle_events(request: Request, background_tasks: BackgroundTasks):
     events_xml: bytes = await request.body()
 
     events = PremisEvents(events_xml).events
+
+    log.info(f"Got {len(events)} PREMIS-event(s).")
 
     for event in events:
         background_tasks.add_task(handle_event, event)

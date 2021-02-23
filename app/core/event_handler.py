@@ -1,9 +1,10 @@
+from requests.exceptions import HTTPError
 from viaa.configuration import ConfigParser
 from viaa.observability import logging
+
 from app.core.events_parser import PremisEvent
 from app.core.xml_transformer import transform_mh_result_to_sidecar
 from app.services.mediahaven import MediahavenService, MediaObjectNotFoundException
-from requests.exceptions import HTTPError
 
 config = ConfigParser()
 log = logging.get_logger(__name__, config=config)
@@ -11,7 +12,7 @@ log = logging.get_logger(__name__, config=config)
 
 async def handle_event(premis_event: PremisEvent) -> None:
     log.debug(
-        "Got a PREMIS event.",
+        "Start handling of PREMIS event.",
         fragment_id=premis_event.fragment_id,
     )
 
@@ -57,7 +58,7 @@ async def handle_event(premis_event: PremisEvent) -> None:
 
     # Update the newly archived item
     try:
-        is_update_successful = mediahaven_service.update_metadata(fragment_id, sidecar)
+        mediahaven_service.update_metadata(fragment_id, sidecar)
     except HTTPError as e:
         log.critical(
             "Something went wrong while update testbeeld item with original metadata.",
