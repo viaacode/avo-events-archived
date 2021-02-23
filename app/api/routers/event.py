@@ -1,9 +1,11 @@
-from fastapi import APIRouter, BackgroundTasks, Request
+from fastapi import APIRouter, BackgroundTasks, Depends
 from viaa.configuration import ConfigParser
 from viaa.observability import logging
 
 from app.core.event_handler import handle_event
-from app.core.events_parser import PremisEvents
+from app.core.events_parser import parse_premis_events
+from app.models.premis_events import PremisEvents
+from app.models.xml_body import XmlBody
 
 router = APIRouter()
 
@@ -12,13 +14,14 @@ log = logging.get_logger(__name__, config=config)
 
 
 @router.post("/", status_code=202)
-async def handle_events(request: Request, background_tasks: BackgroundTasks):
+async def handle_events(
+    background_tasks: BackgroundTasks,
+    premis_events: PremisEvents = Depends(XmlBody(PremisEvents, parse_premis_events)),
+):
     """
     Returns OK if the xml parsing didn't crash.
     """
-    events_xml: bytes = await request.body()
-
-    events = PremisEvents(events_xml).events
+    events = premis_events.events
 
     log.info(f"Got {len(events)} PREMIS-event(s).")
 

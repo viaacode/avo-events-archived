@@ -2,8 +2,8 @@ from requests.exceptions import HTTPError
 from viaa.configuration import ConfigParser
 from viaa.observability import logging
 
-from app.core.events_parser import PremisEvent
 from app.core.xml_transformer import transform_mh_result_to_sidecar
+from app.models.premis_events import PremisEvent
 from app.services.mediahaven import MediahavenService, MediaObjectNotFoundException
 
 config = ConfigParser()

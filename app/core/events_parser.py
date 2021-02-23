@@ -7,6 +7,7 @@ from lxml import etree
 
 # Constants
 PREMIS_NAMESPACE = "info:lc/xmlns/premis-v2"
+
 VALID_EVENT_TYPES = [
     "FLOW.ARCHIVED",
     "RECORDS.FLOW.ARCHIVED",
@@ -14,86 +15,65 @@ VALID_EVENT_TYPES = [
 ]
 VALID_OUTCOME = "OK"
 
+XPATHS = {
+    "event_type": "./p:eventType",
+    "event_datetime": "./p:eventDateTime",
+    "event_detail": "./p:eventDetail",
+    "event_id": "./p:eventIdentifier[p:eventIdentifierType='MEDIAHAVEN_EVENT']/p:eventIdentifierValue",
+    "event_outcome": "./p:eventOutcomeInformation/p:eventOutcome",
+    "fragment_id": "./p:linkingObjectIdentifier[p:linkingObjectIdentifierType='MEDIAHAVEN_ID']/p:linkingObjectIdentifierValue",
+    "external_id": "./p:linkingObjectIdentifier[p:linkingObjectIdentifierType='EXTERNAL_ID']/p:linkingObjectIdentifierValue",
+}
 
-class InvalidPremisEventException(Exception):
-    """Valid XML but not a Premis event"""
+
+def parse_premis_events(input_xml: bytes):
+    tree = etree.parse(BytesIO(input_xml))
+
+    elements = tree.xpath("/events/p:event", namespaces={"p": PREMIS_NAMESPACE})
+
+    events = [
+        event
+        for event in (parse_premis_event(element) for element in elements)
+        if event["is_valid"] and event["has_valid_outcome"]
+    ]
+
+    return {"events": events}
 
 
-class PremisEvent:
-    """Convenience class for a single XML Premis Event"""
-
-    XPATHS = {
-        "event_type": "./p:eventType",
-        "event_datetime": "./p:eventDateTime",
-        "event_detail": "./p:eventDetail",
-        "event_id": "./p:eventIdentifier[p:eventIdentifierType='MEDIAHAVEN_EVENT']/p:eventIdentifierValue",
-        "event_outcome": "./p:eventOutcomeInformation/p:eventOutcome",
-        "fragment_id": "./p:linkingObjectIdentifier[p:linkingObjectIdentifierType='MEDIAHAVEN_ID']/p:linkingObjectIdentifierValue",
-        "external_id": "./p:linkingObjectIdentifier[p:linkingObjectIdentifierType='EXTERNAL_ID']/p:linkingObjectIdentifierValue",
+def parse_premis_event(element):
+    return {
+        "event_type": _get_xpath_from_event(element, XPATHS["event_type"]),
+        "event_datetime": _get_xpath_from_event(element, XPATHS["event_datetime"]),
+        "event_detail": _get_xpath_from_event(element, XPATHS["event_detail"]),
+        "event_id": _get_xpath_from_event(element, XPATHS["event_id"]),
+        "event_outcome": _get_xpath_from_event(element, XPATHS["event_outcome"]),
+        "fragment_id": _get_xpath_from_event(element, XPATHS["fragment_id"]),
+        "external_id": _get_xpath_from_event(element, XPATHS["external_id"]),
+        "is_valid": _is_valid(_get_xpath_from_event(element, XPATHS["event_type"])),
+        "has_valid_outcome": _has_valid_outcome(
+            _get_xpath_from_event(element, XPATHS["event_outcome"])
+        ),
     }
 
-    def __init__(self, element):
-        self.xml_element = element
-        self.event_type: str = self._get_xpath_from_event(self.XPATHS["event_type"])
-        self.event_datetime: str = self._get_xpath_from_event(
-            self.XPATHS["event_datetime"]
-        )
-        self.event_detail: str = self._get_xpath_from_event(self.XPATHS["event_detail"])
-        self.event_id: str = self._get_xpath_from_event(self.XPATHS["event_id"])
-        self.event_outcome: str = self._get_xpath_from_event(
-            self.XPATHS["event_outcome"]
-        )
-        self.fragment_id: str = self._get_xpath_from_event(self.XPATHS["fragment_id"])
-        self.external_id: str = self._get_xpath_from_event(self.XPATHS["external_id"])
-        self.is_valid: bool = self._is_valid()
-        self.has_valid_outcome: bool = self._has_valid_outcome()
 
-    def _get_xpath_from_event(self, xpath) -> str:
-        """Parses based on an xpath, returns empty string if absent"""
-        try:
-            return self.xml_element.xpath(xpath, namespaces={"p": PREMIS_NAMESPACE})[
-                0
-            ].text
-        except IndexError:
-            return ""
-
-    def _is_valid(self):
-        """A PremisEvent is valid only if:
-        - it has a valid eventType for this particular application,
-        - if it has a fragment ID.
-        """
-        if self.event_type in VALID_EVENT_TYPES and self.fragment_id:
-            return True
-        return False
-
-    def _has_valid_outcome(self):
-        """Check if the outcome of the event was successful"""
-        return self.event_outcome == VALID_OUTCOME
-
-    def to_string(self):
-        return etree.tostring(self.xml_element, encoding="UTF-8").decode("UTF-8")
+def _get_xpath_from_event(element, xpath: str) -> str:
+    """Parses based on an xpath, returns empty string if absent"""
+    try:
+        return element.xpath(xpath, namespaces={"p": PREMIS_NAMESPACE})[0].text
+    except IndexError:
+        return ""
 
 
-class PremisEvents:
-    """Convenience class for XML Premis Events"""
+def _is_valid(event_type: str):
+    """A PremisEvent is valid only if:
+    - it has a valid eventType for this particular application,
+    - if it has a fragment ID.
+    """
+    if event_type in VALID_EVENT_TYPES:
+        return True
+    return False
 
-    def __init__(self, input_xml):
-        self.input_xml = input_xml
-        self.xml_tree = self._xml_to_tree(input_xml)
-        self.docinfo = self.xml_tree.docinfo
-        self.events = self._parse_events()
 
-    def _xml_to_tree(self, input_xml):
-        """Parse the input XML to a DOM"""
-        tree = etree.parse(BytesIO(input_xml))
-        return tree
-
-    def _parse_events(self):
-        """Parse possibly multiple events in the XML-DOM and return a list of
-        DOM Premis-events"""
-        elements = self.xml_tree.xpath(
-            "/events/p:event", namespaces={"p": PREMIS_NAMESPACE}
-        )
-        events = [event for event in (PremisEvent(element) for element in elements) if event.is_valid and event.has_valid_outcome]
-
-        return events
+def _has_valid_outcome(event_outcome: str):
+    """Check if the outcome of the event was successful"""
+    return event_outcome == VALID_OUTCOME
