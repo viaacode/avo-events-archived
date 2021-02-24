@@ -18,7 +18,7 @@ build:
 	docker build -t "${REGISTRY}/${IMAGE_NAME}:${VERSION}" .
 test:
 	docker container run --name "${APP_NAME}_test" \
-					--env-file .env \
+					--env-file .env.example \
 					--entrypoint python "${REGISTRY}/${IMAGE_NAME}:${VERSION}" \
 					"-m" "pytest" "--cov=./app" "--junit-xml=./tests/test_results.xml"
 lint:

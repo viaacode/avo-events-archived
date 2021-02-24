@@ -23,11 +23,3 @@ def disable_network_calls(monkeypatch) -> None:
 
     monkeypatch.setattr(requests, "get", lambda *args, **kwargs: stunted_get())
     monkeypatch.setattr(requests, "post", lambda *args, **kwargs: stunted_post())
-
-
-@pytest.fixture(autouse=True)
-def env_setup(monkeypatch):
-    monkeypatch.setenv("APP_ENVIRONMENT", "test")
-    monkeypatch.setenv("MEDIAHAVEN_USERNAME", "username")
-    monkeypatch.setenv("MEDIAHAVEN_PASSWORD", "password")
-    monkeypatch.setenv("MEDIAHAVEN_HOST", "host")
