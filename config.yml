@@ -1,0 +1,9 @@
+viaa:
+    logging:
+        level: DEBUG
+app:
+    environment: !ENV ${APP_ENVIRONMENT}
+    mediahaven: 
+        host: !ENV ${MEDIAHAVEN_API_HOST}
+        username: !ENV ${MEDIAHAVEN_API_USER}
+        password: !ENV ${MEDIAHAVEN_API_PASSWD}
