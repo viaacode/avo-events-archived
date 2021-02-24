@@ -5,7 +5,7 @@ import pytest
 from lxml.etree import XMLSyntaxError
 from lxml.etree import fromstring as parse_xml_string
 
-from app.core.events_parser import parse_premis_events, parse_premis_event, _get_xpath_from_event
+from app.core.events_parser import _get_xpath_from_event, parse_premis_events
 from tests.resources import (
     invalid_xml_event,
     multi_premis_event,

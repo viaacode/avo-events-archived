@@ -5,7 +5,7 @@ SHELL = /bin/bash
 
 .PHONY: all
 
-NAMESPACE = viaa-tools
+NAMESPACE = shared-components
 OC_PROJECT = ${NAMESPACE}
 
 APP_NAME = avo-events-archived
@@ -18,6 +18,7 @@ build:
 	docker build -t "${REGISTRY}/${IMAGE_NAME}:${VERSION}" .
 test:
 	docker container run --name "${APP_NAME}_test" \
+					--env-file .env \
 					--entrypoint python "${REGISTRY}/${IMAGE_NAME}:${VERSION}" \
 					"-m" "pytest" "--cov=./app" "--junit-xml=./tests/test_results.xml"
 lint:
