@@ -4,6 +4,6 @@ viaa:
 app:
     environment: !ENV ${APP_ENVIRONMENT}
     mediahaven: 
-        host: !ENV ${MEDIAHAVEN_API_HOST}
-        username: !ENV ${MEDIAHAVEN_API_USER}
-        password: !ENV ${MEDIAHAVEN_API_PASSWD}
+        host: !ENV ${MEDIAHAVEN_HOST}
+        username: !ENV ${MEDIAHAVEN_USERNAME}
+        password: !ENV ${MEDIAHAVEN_PASSWORD}

@@ -15,3 +15,7 @@ log = logging.get_logger(__name__, config=config)
 @app.on_event("startup")
 async def startup_event():
     log.info("avo-events-archived is now accepting requests.")
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    log.info("avo-events-archived is shutting down.")

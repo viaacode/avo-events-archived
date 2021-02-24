@@ -44,8 +44,8 @@ format:
 
 .PHONY: test
 test:
-	$(POETRY) run pytest ./tests/ --cov-report term-missing --cov-fail-under 100 --cov ./app/
+	export $$(grep -v '^#' .env | xargs -d '\n') && $(POETRY) run pytest -vvv
 
 .PHONY: run
 run:
-	$(POETRY) run uvicorn app.main:app --reload
+	export $$(grep -v '^#' .env | xargs -d '\n') && $(POETRY) run python main.py
