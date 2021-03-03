@@ -31,7 +31,7 @@ async def handle_event(premis_event: PremisEvent) -> None:
         )
         return
     except KeyError as e:
-        log.critical(
+        log.warning(
             "s3_object_key is missing on the testbeeld item.",
             fragment_id=premis_event.fragment_id,
             exception=str(e),
