@@ -30,6 +30,13 @@ async def handle_event(premis_event: PremisEvent) -> None:
             exception=str(e),
         )
         return
+    except KeyError as e:
+        log.critical(
+            "s3_object_key is missing on the testbeeld item.",
+            fragment_id=premis_event.fragment_id,
+            exception=str(e),
+        )
+        return
 
     # Query mediahaven for the original item using PID
     try:
