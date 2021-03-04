@@ -23,7 +23,8 @@ COPY . .
 RUN chown -R appuser:appgroup /app
 
 # Install Python dependencies.
-RUN poetry install --no-root
+RUN poetry run pip install --upgrade pip && \
+    poetry install --no-root
 
 USER appuser
 
