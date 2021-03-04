@@ -10,7 +10,7 @@ uvicorn = {extras = ["standard"], version = "^0.13.3"}
 fastapi = "^0.63.0"
 lxml = "^4.6.2"
 requests = "^2.25.1"
-viaa-chassis = {version = "^0.1.3", allow-prereleases = true}
+viaa-chassis = {version = "*", allow-prereleases = true}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

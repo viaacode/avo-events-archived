@@ -898,7 +898,7 @@ reference = "meemoo"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "50e393472f9479641c9c3d26299b170817be4e8d5b7476218cfc045dd57ca330"
+content-hash = "9a706d05d72b9b2b1921df0cc4ea57d4b09884404c101824e0e38ae3adab8394"
 
 [metadata.files]
 appdirs = [
