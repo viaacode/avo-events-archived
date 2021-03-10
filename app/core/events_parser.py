@@ -21,7 +21,7 @@ XPATHS = {
     "event_detail": "./p:eventDetail",
     "event_id": "./p:eventIdentifier[p:eventIdentifierType='MEDIAHAVEN_EVENT']/p:eventIdentifierValue",
     "event_outcome": "./p:eventOutcomeInformation/p:eventOutcome",
-    "fragment_id": "./p:linkingObjectIdentifier[p:linkingObjectIdentifierType='MEDIAHAVEN_ID']/p:linkingObjectIdentifierValue",
+    "mediahaven_id": "./p:linkingObjectIdentifier[p:linkingObjectIdentifierType='MEDIAHAVEN_ID']/p:linkingObjectIdentifierValue",
     "external_id": "./p:linkingObjectIdentifier[p:linkingObjectIdentifierType='EXTERNAL_ID']/p:linkingObjectIdentifierValue",
 }
 
@@ -47,7 +47,7 @@ def parse_premis_event(element):
         "event_detail": _get_xpath_from_event(element, XPATHS["event_detail"]),
         "event_id": _get_xpath_from_event(element, XPATHS["event_id"]),
         "event_outcome": _get_xpath_from_event(element, XPATHS["event_outcome"]),
-        "fragment_id": _get_xpath_from_event(element, XPATHS["fragment_id"]),
+        "mediahaven_id": _get_xpath_from_event(element, XPATHS["mediahaven_id"]),
         "external_id": _get_xpath_from_event(element, XPATHS["external_id"]),
         "is_valid": _is_valid(_get_xpath_from_event(element, XPATHS["event_type"])),
         "has_valid_outcome": _has_valid_outcome(

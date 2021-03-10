@@ -34,7 +34,7 @@ def test_single_event(resource, event_type):
     assert len(p["events"]) == 1
     assert p["events"][0]["event_id"] == "111"
     assert p["events"][0]["event_detail"] == "Ionic Defibulizer"
-    assert p["events"][0]["fragment_id"] == "a1b2c3"
+    assert p["events"][0]["mediahaven_id"] == "a1b2c3"
     assert p["events"][0]["event_type"] == event_type
     assert p["events"][0]["event_outcome"] == "OK"
     assert p["events"][0]["event_datetime"] == "2019-03-30T05:28:40Z"
@@ -53,7 +53,7 @@ def test_multi_event():
     assert len(p["events"]) == 2
     assert p["events"][0]["event_id"] == "333"
     assert p["events"][0]["event_detail"] == "Ionic Defibulizer"
-    assert p["events"][0]["fragment_id"] == "d4e5f6"
+    assert p["events"][0]["mediahaven_id"] == "d4e5f6"
     assert p["events"][0]["event_type"] == "FLOW.ARCHIVED"
     assert p["events"][0]["event_outcome"] == "OK"
     assert p["events"][0]["event_datetime"] == "2019-03-30T05:28:40Z"
@@ -61,7 +61,7 @@ def test_multi_event():
     assert p["events"][0]["has_valid_outcome"]
     assert p["events"][1]["event_id"] == "444"
     assert p["events"][1]["event_detail"] == "Ionic Defibulizer 2"
-    assert p["events"][1]["fragment_id"] == "g7h8j9"
+    assert p["events"][1]["mediahaven_id"] == "g7h8j9"
     assert p["events"][1]["event_type"] == "RECORDS.FLOW.ARCHIVED"
     assert p["events"][1]["event_outcome"] == "OK"
     assert p["events"][1]["event_datetime"] == "2019-03-30T05:28:40Z"
