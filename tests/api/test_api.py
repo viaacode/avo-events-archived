@@ -6,8 +6,8 @@ from pytest_mock import MockerFixture
 from tests.resources import (
     fragment_info,
     query_result_single_result,
+    sidecar,
     single_premis_event,
-    sidecar
 )
 
 
@@ -32,7 +32,10 @@ def test_handle_events(client: TestClient, mocker: MockerFixture) -> None:
 
     get_fragment_mock.assert_called_once_with("a1b2c3")
     query_mock.assert_called_once_with([("PID", "s3_filename")])
-    update_metadata_mock.assert_called_once_with("123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525", sidecar)
+    update_metadata_mock.assert_called_once_with(
+        "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525",
+        sidecar,
+    )
     assert response.status_code == 202
     content = response.json()
     assert "Updating" in content["message"]

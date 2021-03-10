@@ -29,7 +29,7 @@ async def handle_event(premis_event: PremisEvent) -> None:
             exception=str(e),
         )
         return
-    
+
     try:
         original_pid = fragment["Dynamic"]["s3_object_key"].split(".")[0]
         fragment_id = fragment["Internal"]["FragmentId"]
