@@ -23,16 +23,16 @@ async def handle_event(premis_event: PremisEvent) -> None:
     try:
         fragment = mediahaven_service.get_fragment(mediahaven_id)
     except MediaObjectNotFoundException as e:
-        log.critical(
+        log.error(
             "Got a PREMIS event, but the mediahaven id is not in MediaHaven",
             mediahaven_id=premis_event.mediahaven_id,
             exception=str(e),
         )
         return
 
+    fragment_id = fragment["Internal"]["FragmentId"]
     try:
         original_pid = fragment["Dynamic"]["s3_object_key"].split(".")[0]
-        fragment_id = fragment["Internal"]["FragmentId"]
     except KeyError as e:
         log.warning(
             f"{e} is missing on the testbeeld item.",
