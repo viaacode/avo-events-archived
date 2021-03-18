@@ -34,7 +34,6 @@ def parse_premis_events(input_xml: bytes):
     events = [
         event
         for event in (parse_premis_event(element) for element in elements)
-        if event["is_valid"] and event["has_valid_outcome"]
     ]
 
     return {"events": events}
