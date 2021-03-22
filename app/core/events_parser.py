@@ -31,10 +31,7 @@ def parse_premis_events(input_xml: bytes):
 
     elements = tree.xpath("/events/p:event", namespaces={"p": PREMIS_NAMESPACE})
 
-    events = [
-        event
-        for event in (parse_premis_event(element) for element in elements)
-    ]
+    events = [(parse_premis_event(element) for element in elements)]
 
     return {"events": events}
 
