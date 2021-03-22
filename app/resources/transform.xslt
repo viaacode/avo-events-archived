@@ -32,6 +32,9 @@
                 <is_verwant_aan>
                     <xsl:value-of select="//mhs:Dynamic/PID"/>
                 </is_verwant_aan>
+                <is_versie_van>
+                    <xsl:value-of select="//mhs:Administrative/mh:ExternalId"/>
+                </is_versie_van>
             </dc_relations>
         </xsl:copy>
     </xsl:template>
