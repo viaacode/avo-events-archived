@@ -23,7 +23,13 @@ async def handle_events(
     """
     events = premis_events.events
 
-    log.info(f"Got {len(events)} PREMIS-event(s).")
+    archived_events = [
+        event for event in events if event.is_valid and event.has_valid_outcome
+    ]
+
+    log.info(
+        f"Got {len(events)} PREMIS-event(s) of which {len(archived_events)} archived-events(s) with outcome OK."
+    )
 
     for event in events:
         background_tasks.add_task(handle_event, event)
