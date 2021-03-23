@@ -46,6 +46,7 @@
     <Original_CP_id>OR-xxxxxxx</Original_CP_id>
     <dc_relations type="list">
       <is_verwant_aan>PID_OF_ORIGINAL_FRAGMENT</is_verwant_aan>
+      <is_versie_van>EXTERNALID_OF_ORIGINAL_FRAGMENT</is_versie_van>
     </dc_relations>
   </mhs:Dynamic>
 </mhs:Sidecar>
