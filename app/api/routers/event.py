@@ -31,9 +31,9 @@ async def handle_events(
         f"Got {len(events)} PREMIS-event(s) of which {len(archived_events)} archived-events(s) with outcome OK."
     )
 
-    for event in events:
+    for event in archived_events:
         background_tasks.add_task(handle_event, event)
 
     return {
-        "message": f"Updating {len(events)} item(s) with metadata from the original fragment in the background."
+        "message": f"Updating {len(archived_events)} item(s) with metadata from the original fragment in the background."
     }

@@ -8,6 +8,7 @@ from tests.resources import (
     query_result_single_result,
     sidecar,
     single_premis_event,
+    single_premis_event_nok,
 )
 
 
@@ -38,4 +39,31 @@ def test_handle_events(client: TestClient, mocker: MockerFixture) -> None:
     )
     assert response.status_code == 202
     content = response.json()
-    assert "Updating" in content["message"]
+    assert "Updating 1" in content["message"]
+
+
+def test_handle_NOK_events(client: TestClient, mocker: MockerFixture) -> None:
+    get_fragment_mock = mocker.patch(
+        "app.services.mediahaven.MediahavenService.get_fragment",
+        return_value=json.loads(fragment_info.decode()),
+    )
+    query_mock = mocker.patch(
+        "app.services.mediahaven.MediahavenService.query",
+        return_value=query_result_single_result,
+    )
+    update_metadata_mock = mocker.patch(
+        "app.services.mediahaven.MediahavenService.update_metadata",
+        return_value=True,
+    )
+
+    response = client.post(
+        "/event/",
+        data=single_premis_event_nok,
+    )
+
+    get_fragment_mock.assert_not_called()
+    query_mock.assert_not_called()
+    update_metadata_mock.assert_not_called()
+    assert response.status_code == 202
+    content = response.json()
+    assert "Updating 0" in content["message"]
