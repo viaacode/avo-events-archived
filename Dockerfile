@@ -8,23 +8,16 @@ RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
 
 WORKDIR /app
 
-# Install curl
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends curl
-
-# Install Poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
-    cd /usr/local/bin && \
-    ln -s /opt/poetry/bin/poetry && \
-    poetry config virtualenvs.create false
-
 # Let the appuser own the files so he can rwx during runtime.
 COPY . .
 RUN chown -R appuser:appgroup /app
 
-# Install Python dependencies.
-RUN poetry run pip install --upgrade pip && \
-    poetry install --no-root
+# We install all our Python dependencies. Add the extra index url because some
+# packages are in the meemoo repo.
+RUN pip3 install -r requirements.txt \
+    --extra-index-url http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple \
+    --trusted-host do-prd-mvn-01.do.viaa.be && \
+    pip3 install flake8
 
 USER appuser
 
