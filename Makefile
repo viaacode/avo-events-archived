@@ -34,7 +34,6 @@ init-dev:
 	make init
 	${VENV_PYTHON} -m pip install -r requirements-dev.txt
 
-
 .PHONY: clean
 clean:
 	find . -type d -name "__pycache__" | xargs rm -rf {};
@@ -57,8 +56,15 @@ format:
 
 .PHONY: test
 test:
+ifneq ("$(wildcard .env)", ".env")
+	cp .env.example .env
+endif
 	export $$(grep -v '^#' .env | xargs -d '\n') && ${VENV_ACTIVATE} && pytest -vvv
 
 .PHONY: run
 run:
+ifneq ("$(wildcard .env)", ".env")
+	@echo "No .env file found."
+else
 	export $$(grep -v '^#' .env | xargs -d '\n') && ${VENV_ACTIVATE} && python main.py
+endif
