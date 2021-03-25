@@ -60,3 +60,9 @@ Assuming you have already cloned the repository and are in the project folder.
 2. Install development dependencies using `pip install -r requirements-dev.txt`.
 3. Set environment variables (all variables in `.env.example` have to be set, but these can be dummy variables).
 4. Run the tests using `pytest`
+
+#### Docker
+
+1. Build the Docker container using `docker build -t avo-events-archived .`.
+2. Run the tests in the container using `docker container run --name aea_test --env-file .env --entrypoint python avo-events-archived:latest "-m" "pytest"`.
+3. Clean up after yourself and remove the container using `docker rm aea_test`.
