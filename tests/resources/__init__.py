@@ -14,6 +14,7 @@ from .premis_events import (
     single_event_no_external_id,
     single_premis_event,
     single_premis_event_archived_on_disk,
+    single_premis_event_empty_detail,
     single_premis_event_nok,
 )
 from .transformation_results import sidecar

@@ -14,6 +14,9 @@ def _load_resource(filename):
 
 single_premis_event = _load_resource("single_premis_event.xml")
 single_premis_event_nok = _load_resource("single_premis_event_nok.xml")
+single_premis_event_empty_detail = _load_resource(
+    "single_premis_event_empty_detail.xml"
+)
 multi_premis_event = _load_resource("multi_premis_event.xml")
 invalid_premis_event = _load_resource("invalid_premis_event.xml")
 invalid_xml_event = _load_resource("invalid_xml_event.xml")

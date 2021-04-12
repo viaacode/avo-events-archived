@@ -1,5 +1,6 @@
 import json
 
+import pytest
 from fastapi.testclient import TestClient
 from pytest_mock import MockerFixture
 
@@ -8,11 +9,19 @@ from tests.resources import (
     query_result_single_result,
     sidecar,
     single_premis_event,
+    single_premis_event_empty_detail,
     single_premis_event_nok,
 )
 
 
-def test_handle_events(client: TestClient, mocker: MockerFixture) -> None:
+@pytest.mark.parametrize(
+    "resource",
+    [
+        single_premis_event,
+        single_premis_event_empty_detail,
+    ],
+)
+def test_handle_events(client: TestClient, mocker: MockerFixture, resource) -> None:
     get_fragment_mock = mocker.patch(
         "app.services.mediahaven.MediahavenService.get_fragment",
         return_value=json.loads(fragment_info.decode()),
@@ -28,7 +37,7 @@ def test_handle_events(client: TestClient, mocker: MockerFixture) -> None:
 
     response = client.post(
         "/event/",
-        data=single_premis_event,
+        data=resource,
     )
 
     get_fragment_mock.assert_called_once_with("a1b2c3")
