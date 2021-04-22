@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <mhs:Sidecar xmlns:mhs="https://zeticon.mediahaven.com/metadata/20.3/mhs/" xmlns:mh="https://zeticon.mediahaven.com/metadata/20.3/mh/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="20.3">
   <mhs:Descriptive>
     <mh:Title>Something</mh:Title>
@@ -6,30 +6,30 @@
   </mhs:Descriptive>
   <mhs:Dynamic>
     <dc_identifier_localids>
-                    <MEDIA_ID>MEDIA_ID</MEDIA_ID>
-                </dc_identifier_localids>
+            <MEDIA_ID>MEDIA_ID</MEDIA_ID>
+        </dc_identifier_localids>
     <dc_titles>
-                    <alternatief>Feed</alternatief>
-                    <serie>Sportarchief</serie>
-                </dc_titles>
+            <alternatief>Feed</alternatief>
+            <serie>Sportarchief</serie>
+        </dc_titles>
     <dc_contributors>
-                    <archivaris>Rudolf</archivaris>
-                </dc_contributors>
+            <archivaris>Rudolf</archivaris>
+        </dc_contributors>
     <dc_publishers>
-                    <Distributeur>Ten</Distributeur>
-                </dc_publishers>
+            <Distributeur>Ten</Distributeur>
+        </dc_publishers>
     <dc_subjects>
-                    <Trefwoord>VOETBAL</Trefwoord>
-                    <Trefwoord>COMPETITIE</Trefwoord>
-                    <Trefwoord>SPANJE</Trefwoord>
-                    <Trefwoord>REAL MADRID</Trefwoord>
-                    <Trefwoord>VALENCIA</Trefwoord>
-                    <Trefwoord>BENZEMA KARIM</Trefwoord>
-                    <Trefwoord>KROOS TONI</Trefwoord>
-                </dc_subjects>
+            <Trefwoord>VOETBAL</Trefwoord>
+            <Trefwoord>COMPETITIE</Trefwoord>
+            <Trefwoord>SPANJE</Trefwoord>
+            <Trefwoord>REAL MADRID</Trefwoord>
+            <Trefwoord>VALENCIA</Trefwoord>
+            <Trefwoord>BENZEMA KARIM</Trefwoord>
+            <Trefwoord>KROOS TONI</Trefwoord>
+        </dc_subjects>
     <dc_rights_rightsHolders>
-                    <Licentiehouder/>
-                </dc_rights_rightsHolders>
+            <Licentiehouder/>
+        </dc_rights_rightsHolders>
     <dc_source>s3_filename_origineel.mxf</dc_source>
     <ie_type>video</ie_type>
     <type_viaa>video</type_viaa>
