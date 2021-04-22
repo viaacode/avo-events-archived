@@ -31,6 +31,7 @@ async def handle_event(premis_event: PremisEvent) -> None:
         return
 
     fragment_id = fragment["Internal"]["FragmentId"]
+
     try:
         original_pid = fragment["Dynamic"]["s3_object_key"].split(".")[0]
     except KeyError as e:
@@ -42,12 +43,45 @@ async def handle_event(premis_event: PremisEvent) -> None:
 
     # Query mediahaven for the original item using PID
     try:
-        original_metadata = mediahaven_service.query([("PID", original_pid)])
+        result = mediahaven_service.query([("PID", original_pid)])
     except HTTPError as e:
         log.warning(
             "Something went wrong querying Mediahaven for the original item.",
             mediahaven_id=premis_event.mediahaven_id,
             original_pid=original_pid,
+            exception=str(e),
+        )
+        return
+
+    # If there are multiple items for the PID, we need the one that isn't a fragment
+    if result["TotalNrOfResults"] > 1:
+        original_fragment_id = next(
+            (
+                item["Internal"]["FragmentId"]
+                for item in result["MediaDataList"]
+                if not item["Internal"]["IsFragment"]
+            )
+        )
+    elif result["TotalNrOfResults"] == 1:
+        original_fragment_id = result["MediaDataList"][0]["Internal"]["FragmentId"]
+    else:
+        log.warning(
+            "No item found for original_pid.",
+            mediahaven_id=premis_event.mediahaven_id,
+            original_pid=original_pid,
+        )
+        return
+
+    # Get the original metadata
+    try:
+        original_metadata = mediahaven_service.get_fragment(original_fragment_id, "xml")
+    except HTTPError as e:
+        log.warning(
+            "Something went wrong while connecting to MH.",
+            mediahaven_id=premis_event.mediahaven_id,
+            fragment_id=fragment_id,
+            original_pid=original_pid,
+            original_fragment_id=original_fragment_id,
             exception=str(e),
         )
         return
