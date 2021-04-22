@@ -1,0 +1,32 @@
+{
+  "TotalNrOfResults": 2,
+  "StartIndex": 0,
+  "MediaDataList": [
+    {
+      "Administrative": {},
+      "Internal": {
+        "IsFragment": false,
+        "FragmentId": "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525"
+      },
+      "Dynamic": {},
+      "Technical": {},
+      "RightsManagement": {},
+      "Descriptive": {},
+      "Structural": {},
+      "Context": {}
+    },
+    {
+      "Administrative": {},
+      "Internal": {
+        "IsFragment": true,
+        "FragmentId": "1234567891011121314151617181920212223242526272829303132333435363dfe24b95373a4ca6b00ebfee3447bd75"
+      },
+      "Dynamic": {},
+      "Technical": {},
+      "RightsManagement": {},
+      "Descriptive": {},
+      "Structural": {},
+      "Context": {}
+    }
+  ]
+}

@@ -64,7 +64,7 @@ class MediahavenService:
     def query(self, query_key_values) -> bytes:
         headers: Dict[str, str] = {
             "Authorization": f"Bearer {self.token_info['access_token']}",
-            "Accept": "application/vnd.mediahaven.v2+xml",
+            "Accept": "application/vnd.mediahaven.v2+json",
         }
 
         # Construct URL query parameters as "+(k1:v1) +(k2:v2) +(k3:v3) ..."
@@ -90,15 +90,15 @@ class MediahavenService:
         # If there is an HTTP error, raise it
         response.raise_for_status()
 
-        return response.content
+        return response.json()
 
     @__authenticate
-    def get_fragment(self, fragment_id: str) -> dict:
+    def get_fragment(self, fragment_id: str, content_type: str = "json") -> dict:
         url: str = f"{self.cfg['mediahaven']['host']}/media/{fragment_id}"
 
         headers: dict = {
             "Authorization": f"Bearer {self.token_info['access_token']}",
-            "Accept": "application/vnd.mediahaven.v2+json",
+            "Accept": f"application/vnd.mediahaven.v2+{content_type}",
         }
 
         response = requests.get(
@@ -113,7 +113,10 @@ class MediahavenService:
         if response.status_code in (400, 404):
             raise MediaObjectNotFoundException(response.json())
 
-        return response.json()
+        if content_type == "json":
+            return response.json()
+        else:
+            return response.content
 
     @__authenticate
     def update_metadata(self, fragment_id: str, sidecar: bytes) -> bool:

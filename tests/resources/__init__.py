@@ -2,10 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from .mh_api_responses import (
-    fragment_info,
-    query_result_multiple_results,
-    query_result_no_result,
-    query_result_single_result,
+    fragment_info_json,
+    fragment_info_xml,
+    query_result_multiple_results_json,
+    query_result_multiple_results_xml,
+    query_result_no_result_json,
+    query_result_no_result_xml,
+    query_result_single_result_json,
+    query_result_single_result_xml,
 )
 from .premis_events import (
     invalid_premis_event,
