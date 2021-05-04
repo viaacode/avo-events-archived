@@ -1,5 +1,5 @@
 {
-  "TotalNrOfResults": 2,
+  "TotalNrOfResults": 3,
   "StartIndex": 0,
   "MediaDataList": [
     {
@@ -9,6 +9,21 @@
       "Internal": {
         "IsFragment": false,
         "FragmentId": "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525"
+      },
+      "Dynamic": {},
+      "Technical": {},
+      "RightsManagement": {},
+      "Descriptive": {},
+      "Structural": {},
+      "Context": {}
+    },
+    {
+      "Administrative": {
+	"Type": "video"
+      },
+      "Internal": {
+        "IsFragment": false,
+        "FragmentId": "911590738667861623378452998032598893744975670506425831782315371606163411184739903652215505881300"
       },
       "Dynamic": {},
       "Technical": {},
