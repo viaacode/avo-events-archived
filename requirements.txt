@@ -1,0 +1,5 @@
+uvicorn[standard]==0.13.4
+fastapi==0.63.0
+lxml==4.6.3
+requests==2.25.1
+viaa-chassis==0.2.0rc1
