@@ -4,6 +4,7 @@
 from .mh_api_responses import (
     fragment_info_json,
     fragment_info_xml,
+    query_result_multiple_results_json_3,
     query_result_multiple_results_json,
     query_result_multiple_results_xml,
     query_result_no_result_json,

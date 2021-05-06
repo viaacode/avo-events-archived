@@ -14,6 +14,7 @@ def _load_resource(filename):
 
 fragment_info_json = _load_resource("fragment_info.json")
 fragment_info_xml = _load_resource("fragment_info.xml")
+query_result_multiple_results_json_3 = _load_resource("query_result_multiple_results_3.json")
 query_result_multiple_results_json = _load_resource("query_result_multiple_results.json")
 query_result_multiple_results_xml = _load_resource("query_result_multiple_results.xml")
 query_result_no_result_json = _load_resource("query_result_no_result.json")
