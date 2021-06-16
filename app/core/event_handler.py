@@ -81,7 +81,7 @@ async def handle_event(premis_event: PremisEvent) -> None:
     fragment_id = fragment["Internal"]["FragmentId"]
 
     try:
-        original_pid = fragment["Dynamic"]["s3_object_key"].split(".")[0]
+        original_pid = fragment["Dynamic"]["s3_object_key"][0:10]
     except KeyError as e:
         log.warning(
             f"{e} is missing on the testbeeld item.",

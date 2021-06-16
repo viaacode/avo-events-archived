@@ -70,7 +70,7 @@
         "CP": "vrt",
         "object_use": "archive_master",
         "s3_domain": "s3-qas.viaa.be",
-        "s3_object_key": "s3_filename.mxf",
+        "s3_object_key": "s3filename.mxf",
         "ie_type": "n/a",
         "CP_id": "OR-xxxxxx",
         "md5_viaa": "571fbacd0d2e57882cf4bf23315e1653",
