@@ -58,7 +58,7 @@ def test_handle_events(client: TestClient, mocker: MockerFixture, resource) -> N
             ),
         ]
     )
-    query_mock.assert_called_once_with([("PID", "s3_filename")])
+    query_mock.assert_called_once_with([("PID", "s3filename")])
     update_metadata_mock.assert_called_once_with(
         "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525",
         sidecar,
@@ -108,7 +108,7 @@ def test_handle_events_multiple_results_for_pid(client: TestClient, mocker: Mock
             ),
         ]
     )
-    query_mock.assert_called_once_with([("PID", "s3_filename")])
+    query_mock.assert_called_once_with([("PID", "s3filename")])
     update_metadata_mock.assert_called_once_with(
         "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525",
         sidecar,
