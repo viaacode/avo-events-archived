@@ -1,52 +1,12 @@
-VERSION = ${shell (git describe --tags || echo latest)}
-
 .ONESHELL:
 SHELL = /bin/bash
 
-.PHONY: all
+.PHONY: all test
 
-NAMESPACE = shared-components
-OC_PROJECT = ${NAMESPACE}
-
-APP_NAME = avo-events-archived
-IMAGE_NAME = ${NAMESPACE}/${APP_NAME}
-REGISTRY = docker-registry-default.apps.do-prd-okp-m0.do.viaa.be
-login:
-	login_oc.sh https://do-prd-okp-m0.do.viaa.be:8443
-	oc project "${OC_PROJECT}"
-build:
-	docker build -t "${REGISTRY}/${IMAGE_NAME}:${VERSION}" .
 test:
-	docker container run --name "${APP_NAME}_test" \
-					--env-file .env.example \
-					--entrypoint python "${REGISTRY}/${IMAGE_NAME}:${VERSION}" \
-					"-m" "pytest" "--cov=./app" "--junit-xml=./tests/test_results.xml"
-lint:
-	docker container run --name "${APP_NAME}_lint" \
-					--entrypoint flake8 "${REGISTRY}/${IMAGE_NAME}:${VERSION}" \
-					--exit-zero \
-					--max-line-length=88
-push: 	login
-	docker push ${REGISTRY}/${IMAGE_NAME}:${VERSION}
-
-tag-int:
-	oc tag ${IMAGE_NAME}:${VERSION} ${IMAGE_NAME}:int
-deploy-int:
-test-int:
-
-tag-qas:
-	oc tag ${IMAGE_NAME}:${VERSION} ${IMAGE_NAME}:qas
-deploy-qas:
-	bash ./openshift/wait4rollout.sh qas ${APP_NAME}
-test-qas:
-
-tag-prd:
-	oc tag ${IMAGE_NAME}:${VERSION} ${IMAGE_NAME}:prd
-deploy-prd:
-
-approved:
-	echo "Approved"
-
-post-clean:
-	docker container rm "${APP_NAME}_test"
-	docker container rm "${APP_NAME}_lint"
+	apt-get update && apt-get install -y curl
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+	source $$HOME/.poetry/env
+	poetry install --no-root
+	export $(shell cat .env.example | xargs)
+	poetry run pytest -vvv --cov=./app --junit-xml=./tests/test_results.xml
