@@ -4,7 +4,6 @@ SHELL = /bin/bash
 .PHONY: all test
 
 test:
-	apt-get update && apt-get install -y curl
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 	source $$HOME/.poetry/env
 	poetry install --no-root
