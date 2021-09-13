@@ -72,6 +72,7 @@ class MediahavenService:
 
         params_dict: Dict[str, str] = {
             "q": query,
+            "nrOfResults": 1000,
         }
         # Encode the spaces in the query parameters as %20 and not +
         params = urllib.parse.urlencode(params_dict, quote_via=urllib.parse.quote)
