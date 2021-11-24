@@ -1,7 +1,6 @@
 import logging
 
 from uvicorn import Config, Server
-
 from viaa.configuration import ConfigParser
 
 cfg_log_level = ConfigParser().chassis_cfg["logging"]["level"]
@@ -26,4 +25,3 @@ if __name__ == "__main__":
             logger.handlers = []
 
     server.run()
-    
