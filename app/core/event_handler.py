@@ -31,6 +31,35 @@ def determine_original_pid(s3_object_key: str) -> Union[str, None]:
     return None
 
 
+def get_original_pid_from_fragment(fragment: dict) -> str:
+    """Retrieve the `s3_object_key` and determine the original pid from the
+    whole of the fragment.
+
+    Here, we can return both a KeyError (if the `s3_object_key` would not be
+    present) or a ValueError (if the export name and thus the original pid is
+    likely wrong).
+
+    Args:
+        The MediaHaven fragment/record as dict
+
+    Returns:
+        The original PID as a string, or KeyError/ValueError
+
+    Raises:
+        KeyError: If `s3_object_key` is absent.
+        ValueError: If the original pid has a wrong format.
+    """
+    # This will raise a KeyError if `s3_object_key` is not present
+    s3_object_key = fragment["Dynamic"]["s3_object_key"]
+    #
+    original_pid = determine_original_pid(s3_object_key)
+    # If we get None back, raise a ValueError
+    if not original_pid:
+        raise ValueError(f"Could not determine valid pid from \"{s3_object_key}\"")
+    # Else, return the string (original_pid)
+    return original_pid
+
+
 def determine_original_item(mediahaven_result: dict) -> str:
     """From a MediaHaven result list, determine which of the items carries the
     original metadata.

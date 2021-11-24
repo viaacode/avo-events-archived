@@ -7,7 +7,8 @@ import pytest
 
 from app.core.event_handler import (
     determine_original_item,
-    determine_original_pid
+    determine_original_pid,
+    get_original_pid_from_fragment
 )
 from tests.resources import (
     fragment_info_json,
@@ -51,6 +52,28 @@ def test_determine_original_pid(s3_object_key: str, expected_value: Union[str, N
     # Assert
     assert original_pid == expected_value
 
+def test_get_original_pid_from_fragment_correct():
+    # Arrange
+    fragment_dict = json.loads(fragment_info_json.decode())
+    # Act
+    original_pid = get_original_pid_from_fragment(fragment_dict)
+    # Assert
+    assert original_pid == "s3filename"
+
+def test_get_original_pid_from_fragment_KeyError():
+    # Arrange
+    fragment_dict = json.loads(fragment_info_json.decode())
+    del fragment_dict["Dynamic"]["s3_object_key"]
+    # Act & assert
+    with pytest.raises(KeyError):
+        _ = get_original_pid_from_fragment(fragment_dict)
+def test_get_original_pid_from_fragment_ValueError():
+    # Arrange
+    fragment_dict = json.loads(fragment_info_json.decode())
+    fragment_dict["Dynamic"]["s3_object_key"] = "a wrong export name"
+    # Act & assert
+    with pytest.raises(ValueError):
+        _ = get_original_pid_from_fragment(fragment_dict)
 
 def test_determine_original_item_single_item():
     # Arrange
