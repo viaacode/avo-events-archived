@@ -1,3 +1,5 @@
+import re
+from typing import Union
 from requests.exceptions import HTTPError
 from viaa.configuration import ConfigParser
 from viaa.observability import logging
@@ -8,6 +10,25 @@ from app.services.mediahaven import MediahavenService, MediaObjectNotFoundExcept
 
 config = ConfigParser()
 log = logging.get_logger(__name__, config=config)
+
+
+def determine_original_pid(s3_object_key: str) -> Union[str, None]:
+    """From an `s3_object_key`, determine the original pid.
+
+    For exported items, the "export name", and thus the `s3_object_key` by
+    which the item is uploaded to S3 is `<original_pid>.<extension>`. This
+    "original_pid" can have several forms:
+        - 10 char alphanumeric lowercase string, or,
+        - 10 char alphanumeric lowercase string followed by an underscore and a
+          variant (eg. `mezanine`),
+    As to be not too restrictive, we allow for some variation in the part that
+    follows the underscore. The `pid` itself, however, should not deviate from
+    a 10 char lowercase alphanum string."""
+    pattern = re.compile("^([a-z0-9]{10})_?([a-zA-Z]{0,12})")
+    match_obj = pattern.match(s3_object_key)
+    if match_obj:
+        return match_obj.group()
+    return None
 
 
 def determine_original_item(mediahaven_result: dict) -> str:
