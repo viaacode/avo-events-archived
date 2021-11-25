@@ -131,10 +131,16 @@ async def handle_event(premis_event: PremisEvent) -> None:
     fragment_id = fragment["Internal"]["FragmentId"]
 
     try:
-        original_pid = fragment["Dynamic"]["s3_object_key"][0:10]
+        original_pid = get_original_pid_from_fragment(fragment)
     except KeyError as e:
         log.warning(
             f"{e} is missing on the testbeeld item.",
+            mediahaven_id=premis_event.mediahaven_id,
+        )
+        return
+    except ValueError as e:
+        log.warning(
+            f"ValueError: {e}",
             mediahaven_id=premis_event.mediahaven_id,
         )
         return
