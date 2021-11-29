@@ -1,3 +1,5 @@
+import re
+from typing import Union
 from requests.exceptions import HTTPError
 from viaa.configuration import ConfigParser
 from viaa.observability import logging
@@ -8,6 +10,61 @@ from app.services.mediahaven import MediahavenService, MediaObjectNotFoundExcept
 
 config = ConfigParser()
 log = logging.get_logger(__name__, config=config)
+
+
+def determine_original_pid(s3_object_key: str) -> Union[str, None]:
+    """From an `s3_object_key`, determine the original pid.
+
+    For exported items, the "export name", and thus the `s3_object_key` by
+    which the item is uploaded to S3 is `<original_pid>.<extension>`. This
+    "original_pid" can have several forms:
+        - 10 char alphanumeric lowercase string, or,
+        - 10 char alphanumeric lowercase string followed by an underscore and a
+          variant (eg. `mezanine`),
+    As to be not too restrictive, we allow for some variation in the part that
+    follows the underscore. The `pid` itself, however, should not deviate from
+    a 10 char lowercase alphanum string.
+
+    Args:
+        The `s3_object_key` (or export name) as str
+
+    Returns:
+        The likely original PID as a string, or None
+    """
+    pattern = re.compile("^[a-z0-9]{10}_?[a-zA-Z]{0,12}")
+    match_obj = pattern.match(s3_object_key)
+    if match_obj:
+        return match_obj.group()
+    return None
+
+
+def get_original_pid_from_fragment(fragment: dict) -> str:
+    """Retrieve the `s3_object_key` and determine the original pid from the
+    whole of the fragment.
+
+    Here, we can return both a KeyError (if the `s3_object_key` would not be
+    present) or a ValueError (if the export name and thus the original pid is
+    likely wrong).
+
+    Args:
+        The MediaHaven fragment/record as dict
+
+    Returns:
+        The original PID as a string, or KeyError/ValueError
+
+    Raises:
+        KeyError: If `s3_object_key` is absent.
+        ValueError: If the original pid has a wrong format.
+    """
+    # This will raise a KeyError if `s3_object_key` is not present
+    s3_object_key = fragment["Dynamic"]["s3_object_key"]
+    #
+    original_pid = determine_original_pid(s3_object_key)
+    # If we get None back, raise a ValueError
+    if not original_pid:
+        raise ValueError(f'Could not determine valid pid from "{s3_object_key}"')
+    # Else, return the string (original_pid)
+    return original_pid
 
 
 def determine_original_item(mediahaven_result: dict) -> str:
@@ -81,10 +138,16 @@ async def handle_event(premis_event: PremisEvent) -> None:
     fragment_id = fragment["Internal"]["FragmentId"]
 
     try:
-        original_pid = fragment["Dynamic"]["s3_object_key"][0:10]
+        original_pid = get_original_pid_from_fragment(fragment)
     except KeyError as e:
         log.warning(
             f"{e} is missing on the testbeeld item.",
+            mediahaven_id=premis_event.mediahaven_id,
+        )
+        return
+    except ValueError as e:
+        log.warning(
+            f"ValueError: {e}",
             mediahaven_id=premis_event.mediahaven_id,
         )
         return
