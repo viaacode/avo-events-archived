@@ -62,7 +62,7 @@ def get_original_pid_from_fragment(fragment: dict) -> str:
     original_pid = determine_original_pid(s3_object_key)
     # If we get None back, raise a ValueError
     if not original_pid:
-        raise ValueError(f"Could not determine valid pid from \"{s3_object_key}\"")
+        raise ValueError(f'Could not determine valid pid from "{s3_object_key}"')
     # Else, return the string (original_pid)
     return original_pid
 
