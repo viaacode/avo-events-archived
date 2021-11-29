@@ -23,8 +23,15 @@ def determine_original_pid(s3_object_key: str) -> Union[str, None]:
           variant (eg. `mezanine`),
     As to be not too restrictive, we allow for some variation in the part that
     follows the underscore. The `pid` itself, however, should not deviate from
-    a 10 char lowercase alphanum string."""
-    pattern = re.compile("^([a-z0-9]{10})_?([a-zA-Z]{0,12})")
+    a 10 char lowercase alphanum string.
+
+    Args:
+        The `s3_object_key` (or export name) as str
+
+    Returns:
+        The likely original PID as a string, or None
+    """
+    pattern = re.compile("^[a-z0-9]{10}_?[a-zA-Z]{0,12}")
     match_obj = pattern.match(s3_object_key)
     if match_obj:
         return match_obj.group()

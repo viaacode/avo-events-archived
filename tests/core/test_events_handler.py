@@ -67,6 +67,7 @@ def test_get_original_pid_from_fragment_KeyError():
     # Act & assert
     with pytest.raises(KeyError):
         _ = get_original_pid_from_fragment(fragment_dict)
+
 def test_get_original_pid_from_fragment_ValueError():
     # Arrange
     fragment_dict = json.loads(fragment_info_json.decode())
