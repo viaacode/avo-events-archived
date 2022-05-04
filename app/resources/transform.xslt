@@ -19,8 +19,8 @@
 
     <xsl:template match="mhs:Dynamic">
         <xsl:copy>
-            <!-- Copy all dynamic data except for s3 metadata, md5, PID and CP metadata -->
-            <xsl:apply-templates select="*[not(self::s3_bucket | self::s3_domain | self::s3_object_owner | self::s3_object_key | self::md5_viaa | self::PID | self::CP | self::CP_id)]"/>
+            <!-- Copy all dynamic data except for s3 metadata, md5, PID, CP metadata and some problematic fields -->
+            <xsl:apply-templates select="*[not(self::s3_bucket | self::s3_domain | self::s3_object_owner | self::s3_object_key | self::md5_viaa | self::PID | self::CP | self::CP_id | self::dcterms_issued_index | self::dcterms_created_index)]"/>
             <!-- Add new avo specific tags -->
             <Original_CP>
                 <xsl:value-of select="//mhs:Dynamic/CP"/>
