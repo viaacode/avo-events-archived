@@ -28,7 +28,7 @@ async def handle_events(
     ]
 
     log.info(
-        f"Got {len(events)} PREMIS-event(s) of which {len(archived_events)} archived-events(s) with outcome OK."
+        f"Got {len(events)} PREMIS-event(s) of which {len(archived_events)} archived-event(s) with outcome OK."
     )
 
     for event in archived_events:
