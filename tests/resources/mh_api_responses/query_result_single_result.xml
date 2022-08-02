@@ -159,7 +159,7 @@
         <dc_rights_rightsHolders>
             <Licentiehouder></Licentiehouder>
         </dc_rights_rightsHolders>
-        <dc_source>s3_filename_origineel.mxf</dc_source>
+        <Bestandsnaam>s3_filename_origineel.mxf</Bestandsnaam>
         <s3_bucket>mam-highresvideo</s3_bucket>
         <s3_domain>s3.viaa.be</s3_domain>
         <ie_type>video</ie_type>

@@ -64,7 +64,7 @@
         "IngestTape": null
     },
     "Dynamic": {
-        "dc_source": "s3_filename.mxf",
+        "Bestandsnaam": "s3_filename.mxf",
         "PID": "external_id",
         "s3_bucket": "ingest",
         "CP": "vrt",
