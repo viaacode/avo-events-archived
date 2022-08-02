@@ -1,6 +1,6 @@
 viaa:
     logging:
-        level: DEBUG
+        level: !ENV ${LOGGING_LEVEL}
 app:
     environment: !ENV ${APP_ENVIRONMENT}
     mediahaven: 
