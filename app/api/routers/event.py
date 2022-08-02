@@ -27,7 +27,7 @@ async def handle_events(
         event for event in events if event.is_valid and event.has_valid_outcome
     ]
 
-    log.info(
+    log.debug(
         f"Got {len(events)} PREMIS-event(s) of which {len(archived_events)} archived-event(s) with outcome OK."
     )
 
