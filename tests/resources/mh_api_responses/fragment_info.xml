@@ -131,6 +131,7 @@
     <mhs:Dynamic>
         <dc_identifier_localids>
             <MEDIA_ID>MEDIA_ID</MEDIA_ID>
+            <Bestandsnaam>s3_filename_origineel.mxf</Bestandsnaam>
         </dc_identifier_localids>
         <dc_titles>
             <alternatief>Feed</alternatief>
@@ -154,7 +155,7 @@
         <dc_rights_rightsHolders>
             <Licentiehouder></Licentiehouder>
         </dc_rights_rightsHolders>
-        <Bestandsnaam>s3_filename_origineel.mxf</Bestandsnaam>
+        
         <s3_bucket>mam-highresvideo</s3_bucket>
         <s3_domain>s3.viaa.be</s3_domain>
         <ie_type>video</ie_type>

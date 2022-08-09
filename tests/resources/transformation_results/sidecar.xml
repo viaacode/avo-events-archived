@@ -7,6 +7,7 @@
   <mhs:Dynamic>
     <dc_identifier_localids>
             <MEDIA_ID>MEDIA_ID</MEDIA_ID>
+            <Bestandsnaam>s3_filename_origineel.mxf</Bestandsnaam>
         </dc_identifier_localids>
     <dc_titles>
             <alternatief>Feed</alternatief>
@@ -30,7 +31,6 @@
     <dc_rights_rightsHolders>
             <Licentiehouder/>
         </dc_rights_rightsHolders>
-    <Bestandsnaam>s3_filename_origineel.mxf</Bestandsnaam>
     <ie_type>video</ie_type>
     <type_viaa>video</type_viaa>
     <object_level>ie</object_level>
