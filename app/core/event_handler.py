@@ -115,7 +115,7 @@ def determine_original_item(mediahaven_result: dict) -> str:
     return original_fragment_id
 
 
-async def handle_event(premis_event: PremisEvent) -> None:
+def handle_event(premis_event: PremisEvent) -> None:
     log.debug(
         "Start handling of PREMIS event.",
         mediahaven_id=premis_event.mediahaven_id,
