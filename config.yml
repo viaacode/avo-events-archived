@@ -3,7 +3,9 @@ viaa:
         level: DEBUG
 app:
     environment: !ENV ${APP_ENVIRONMENT}
-    mediahaven: 
+    mediahaven:
         host: !ENV ${MEDIAHAVEN_HOST}
         username: !ENV ${MEDIAHAVEN_USERNAME}
         password: !ENV ${MEDIAHAVEN_PASSWORD}
+        client_id: !ENV ${MEDIAHAVEN_CLIENT_ID}
+        client_secret: !ENV ${MEDIAHAVEN_CLIENT_SECRET}
