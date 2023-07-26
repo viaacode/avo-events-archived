@@ -1,10 +1,10 @@
 {
   "TotalNrOfResults": 3,
   "StartIndex": 0,
-  "MediaDataList": [
+  "Results": [
     {
       "Administrative": {
-	"Type": "document"
+        "Type": "document"
       },
       "Internal": {
         "IsFragment": false,
@@ -19,7 +19,7 @@
     },
     {
       "Administrative": {
-	"Type": "video"
+        "Type": "video"
       },
       "Internal": {
         "IsFragment": false,
@@ -34,7 +34,7 @@
     },
     {
       "Administrative": {
-	"Type": "videofragment"
+        "Type": "videofragment"
       },
       "Internal": {
         "IsFragment": true,

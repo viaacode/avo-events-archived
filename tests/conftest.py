@@ -1,16 +1,5 @@
-from typing import Generator
-
 import pytest
 import requests
-from fastapi.testclient import TestClient
-
-from app.app import app
-
-
-@pytest.fixture(scope="module")
-def client() -> Generator:
-    with TestClient(app) as c:
-        yield c
 
 
 @pytest.fixture(autouse=True)

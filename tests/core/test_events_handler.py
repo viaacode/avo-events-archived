@@ -8,14 +8,19 @@ import pytest
 from app.core.event_handler import (
     determine_original_item,
     determine_original_pid,
-    get_original_pid_from_fragment
+    get_original_pid_from_fragment,
 )
 from tests.resources import (
     fragment_info_json,
     query_result_multiple_results_json_3,
     query_result_multiple_results_json,
     query_result_no_result_json,
-    query_result_single_result_json
+    query_result_single_result_json,
+)
+
+from mediahaven.mocks.base_resource import (
+    MediaHavenSingleObjectJSONMock,
+    MediaHavenPageObjectJSONMock,
 )
 
 test_data_original_pid = [
@@ -52,51 +57,77 @@ def test_determine_original_pid(s3_object_key: str, expected_value: Union[str, N
     # Assert
     assert original_pid == expected_value
 
+
 def test_get_original_pid_from_fragment_correct():
     # Arrange
-    fragment_dict = json.loads(fragment_info_json.decode())
+    fragment = MediaHavenSingleObjectJSONMock(json.loads(fragment_info_json.decode()))
     # Act
-    original_pid = get_original_pid_from_fragment(fragment_dict)
+    original_pid = get_original_pid_from_fragment(fragment)
     # Assert
     assert original_pid == "s3filename"
 
-def test_get_original_pid_from_fragment_KeyError():
+
+def test_get_original_pid_from_fragment_AttributeError():
     # Arrange
-    fragment_dict = json.loads(fragment_info_json.decode())
-    del fragment_dict["Dynamic"]["s3_object_key"]
+    fragment = MediaHavenSingleObjectJSONMock(json.loads(fragment_info_json.decode()))
+    del fragment.Dynamic.s3_object_key
     # Act & assert
-    with pytest.raises(KeyError):
-        _ = get_original_pid_from_fragment(fragment_dict)
+    with pytest.raises(AttributeError):
+        _ = get_original_pid_from_fragment(fragment)
+
 
 def test_get_original_pid_from_fragment_ValueError():
     # Arrange
-    fragment_dict = json.loads(fragment_info_json.decode())
-    fragment_dict["Dynamic"]["s3_object_key"] = "a wrong export name"
+    fragment = MediaHavenSingleObjectJSONMock(json.loads(fragment_info_json.decode()))
+    fragment.Dynamic.s3_object_key = "a wrong export name"
     # Act & assert
     with pytest.raises(ValueError):
-        _ = get_original_pid_from_fragment(fragment_dict)
+        _ = get_original_pid_from_fragment(fragment)
+
 
 def test_determine_original_item_single_item():
     # Arrange
-    mediahaven_result = json.loads(query_result_single_result_json)
+    mediahaven_result = MediaHavenPageObjectJSONMock(
+        json.loads(query_result_single_result_json)["Results"],
+        nr_of_results=1,
+        total_nr_of_results=1,
+    )
     # Act
-    fragment_id = determine_original_item(mediahaven_result) 
+    fragment_id = determine_original_item(mediahaven_result)
     # Assert
-    assert fragment_id == "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525"
+    assert (
+        fragment_id
+        == "123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525"
+    )
+
 
 def test_determine_original_item_multiple_items_2():
     # Arrange
-    mediahaven_result = json.loads(query_result_multiple_results_json)
+    mediahaven_result = MediaHavenPageObjectJSONMock(
+        json.loads(query_result_multiple_results_json)["Results"],
+        nr_of_results=2,
+        total_nr_of_results=2,
+    )
     # Act
-    fragment_id = determine_original_item(mediahaven_result) 
+    fragment_id = determine_original_item(mediahaven_result)
     # Assert
-    assert fragment_id == "1234567891011121314151617181920212223242526272829303132333435363dfe24b95373a4ca6b00ebfee3447bd75"
+    assert (
+        fragment_id
+        == "1234567891011121314151617181920212223242526272829303132333435363dfe24b95373a4ca6b00ebfee3447bd75"
+    )
+
 
 def test_determine_original_item_multiple_items_3():
     # Arrange
-    mediahaven_result = json.loads(query_result_multiple_results_json_3)
+    mediahaven_result = MediaHavenPageObjectJSONMock(
+        json.loads(query_result_multiple_results_json_3)["Results"],
+        nr_of_results=3,
+        total_nr_of_results=3,
+    )
     # Act
-    fragment_id = determine_original_item(mediahaven_result) 
+    fragment_id = determine_original_item(mediahaven_result)
     # Assert
-    assert fragment_id == "911590738667861623378452998032598893744975670506425831782315371606163411184739903652215505881300"
-
+    assert (
+        fragment_id
+        == "911590738667861623378452998032598893744975670506425831782315371606163411184739903652215505881300"
+    )

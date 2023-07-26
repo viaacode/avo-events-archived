@@ -2,7 +2,7 @@
 <root>
     <TotalNrOfResults>2</TotalNrOfResults>
     <StartIndex>0</StartIndex>
-    <MediaDataList>
+    <Results>
         <mhs:Sidecar xmlns:mh="https://zeticon.mediahaven.com/metadata/20.3/mh/"
             xmlns:mhs="https://zeticon.mediahaven.com/metadata/20.3/mhs/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="20.3" xsi:schemaLocation="https://zeticon.mediahaven.com/metadata/20.3/mhs/ https://zeticon.mediahaven.com/metadata/20.3/mhs.xsd https://zeticon.mediahaven.com/metadata/20.3/mh/ https://zeticon.mediahaven.com/metadata/20.3/mh.xsd">
@@ -11,5 +11,5 @@
             xmlns:mhs="https://zeticon.mediahaven.com/metadata/20.3/mhs/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="20.3" xsi:schemaLocation="https://zeticon.mediahaven.com/metadata/20.3/mhs/ https://zeticon.mediahaven.com/metadata/20.3/mhs.xsd https://zeticon.mediahaven.com/metadata/20.3/mh/ https://zeticon.mediahaven.com/metadata/20.3/mh.xsd">
         </mhs:Sidecar>
-    </MediaDataList>
+    </Results>
 </root>
