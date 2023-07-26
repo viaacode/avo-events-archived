@@ -32,7 +32,7 @@ pipeline {
     }
     environment {
         OC_PROJECT = 'avo'
-        BASE_IMG = 'python:3.10-slim'
+        BASE_IMG = 'python:3.10'
         OC_URL = 'https://c113-e.private.eu-de.containers.cloud.ibm.com:30227'
         JIRA_URL = 'meemoo.atlassian.net'
         APP_NAME = 'avo-events-archived'

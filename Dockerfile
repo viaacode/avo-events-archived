@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.10
 
 # Applications should run on port 8080 so NGINX can auto discover them.
 EXPOSE 8080
