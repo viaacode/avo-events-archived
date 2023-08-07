@@ -210,7 +210,7 @@ def handle_event(
 
     # Transform the metadata to a new sidecar
     try:
-        sidecar = transform_mh_result_to_sidecar(original_metadata)
+        sidecar = transform_mh_result_to_sidecar(original_metadata.encode("utf-8"))
     except Exception as e:
         log.warning(
             "Something went wrong transforming the original metadata.",

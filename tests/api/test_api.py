@@ -39,7 +39,7 @@ def test_handle_events(
 ) -> None:
     media_haven_mock().records.get.side_effect = [
         MediaHavenSingleObjectJSONMock(json.loads(fragment_info_json.decode())),
-        MediaHavenSingleObjectXMLMock(fragment_info_xml),
+        MediaHavenSingleObjectXMLMock(fragment_info_xml.decode("UTF-8")),
     ]
 
     media_haven_mock().records.search.return_value = MediaHavenPageObjectJSONMock(
@@ -91,7 +91,7 @@ def test_handle_events_multiple_results_for_pid(
 ) -> None:
     media_haven_mock().records.get.side_effect = [
         MediaHavenSingleObjectJSONMock(json.loads(fragment_info_json.decode())),
-        MediaHavenSingleObjectXMLMock(fragment_info_xml),
+        MediaHavenSingleObjectXMLMock(fragment_info_xml.decode("UTF-8")),
     ]
 
     media_haven_mock().records.search.return_value = MediaHavenPageObjectJSONMock(
