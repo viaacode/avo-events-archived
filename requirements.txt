@@ -1,5 +1,6 @@
-uvicorn[standard]==0.13.4
+uvicorn[standard]==0.23.1
 fastapi==0.63.0
-lxml==4.6.3
-requests==2.25.1
+lxml==4.9.3
+requests==2.31.0
 viaa-chassis==0.2.0rc1
+mediahaven @ git+https://github.com/viaacode/mediahaven-python@02768ca53fff4be61f742920ce750b130505b78a

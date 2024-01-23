@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mhs:Sidecar xmlns:mhs="https://zeticon.mediahaven.com/metadata/20.3/mhs/" xmlns:mh="https://zeticon.mediahaven.com/metadata/20.3/mh/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="20.3">
+<mhs:Sidecar xmlns:mhs="https://zeticon.mediahaven.com/metadata/23.1/mhs/" xmlns:mh="https://zeticon.mediahaven.com/metadata/23.1/mh/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="23.1">
   <mhs:Descriptive>
     <mh:Title>Something</mh:Title>
     <mh:Description>Something descriptive</mh:Description>
