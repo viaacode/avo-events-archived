@@ -3,13 +3,13 @@
     <TotalNrOfResults>2</TotalNrOfResults>
     <StartIndex>0</StartIndex>
     <Results>
-        <mhs:Sidecar xmlns:mh="https://zeticon.mediahaven.com/metadata/23.1/mh/"
-            xmlns:mhs="https://zeticon.mediahaven.com/metadata/23.1/mhs/"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="23.1" xsi:schemaLocation="https://zeticon.mediahaven.com/metadata/23.1/mhs/ https://zeticon.mediahaven.com/metadata/23.1/mhs.xsd https://zeticon.mediahaven.com/metadata/23.1/mh/ https://zeticon.mediahaven.com/metadata/23.1/mh.xsd">
+        <mhs:Sidecar xmlns:mh="https://zeticon.mediahaven.com/metadata/24.1/mh/"
+            xmlns:mhs="https://zeticon.mediahaven.com/metadata/24.1/mhs/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="24.1" xsi:schemaLocation="https://zeticon.mediahaven.com/metadata/24.1/mhs/ https://zeticon.mediahaven.com/metadata/24.1/mhs.xsd https://zeticon.mediahaven.com/metadata/24.1/mh/ https://zeticon.mediahaven.com/metadata/24.1/mh.xsd">
         </mhs:Sidecar>
-        <mhs:Sidecar xmlns:mh="https://zeticon.mediahaven.com/metadata/23.1/mh/"
-            xmlns:mhs="https://zeticon.mediahaven.com/metadata/23.1/mhs/"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="23.1" xsi:schemaLocation="https://zeticon.mediahaven.com/metadata/23.1/mhs/ https://zeticon.mediahaven.com/metadata/23.1/mhs.xsd https://zeticon.mediahaven.com/metadata/23.1/mh/ https://zeticon.mediahaven.com/metadata/23.1/mh.xsd">
+        <mhs:Sidecar xmlns:mh="https://zeticon.mediahaven.com/metadata/24.1/mh/"
+            xmlns:mhs="https://zeticon.mediahaven.com/metadata/24.1/mhs/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="24.1" xsi:schemaLocation="https://zeticon.mediahaven.com/metadata/24.1/mhs/ https://zeticon.mediahaven.com/metadata/24.1/mhs.xsd https://zeticon.mediahaven.com/metadata/24.1/mh/ https://zeticon.mediahaven.com/metadata/24.1/mh.xsd">
         </mhs:Sidecar>
     </Results>
 </root>
