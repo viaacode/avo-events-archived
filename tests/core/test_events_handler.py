@@ -12,6 +12,7 @@ from app.core.event_handler import (
 )
 from tests.resources import (
     fragment_info_json,
+    query_result_multiple_results_json_record_types,
     query_result_multiple_results_json_3,
     query_result_multiple_results_json,
     query_result_no_result_json,
@@ -121,6 +122,21 @@ def test_determine_original_item_multiple_items_3():
     # Arrange
     mediahaven_result = MediaHavenPageObjectJSONMock(
         json.loads(query_result_multiple_results_json_3)["Results"],
+        nr_of_results=3,
+        total_nr_of_results=3,
+    )
+    # Act
+    fragment_id = determine_original_item(mediahaven_result)
+    # Assert
+    assert (
+        fragment_id
+        == "911590738667861623378452998032598893744975670506425831782315371606163411184739903652215505881300"
+    )
+
+def test_determine_original_item_multiple_items_record_types():
+    # Arrange
+    mediahaven_result = MediaHavenPageObjectJSONMock(
+        json.loads(query_result_multiple_results_json_record_types)["Results"],
         nr_of_results=3,
         total_nr_of_results=3,
     )
