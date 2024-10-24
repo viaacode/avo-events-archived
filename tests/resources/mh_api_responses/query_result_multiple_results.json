@@ -4,7 +4,9 @@
   "Results": [
     {
       "Administrative": {
-        "Type": "document"
+        "Type": "document",
+        "RecordType": "Record"
+
       },
       "Internal": {
         "IsFragment": false,
@@ -19,7 +21,8 @@
     },
     {
       "Administrative": {
-        "Type": "videofragment"
+        "Type": "videofragment",
+        "RecordType": "Record"
       },
       "Internal": {
         "IsFragment": true,
