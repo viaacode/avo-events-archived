@@ -98,17 +98,19 @@ def determine_original_item(mediahaven_result: MediaHavenPageObject) -> str:
     # asked.
     if mediahaven_result.total_nr_of_results == 1:
         original_fragment_id = mediahaven_result[0].Internal.FragmentId
-    # If there are multiple items for the PID, we filter out the "documents"
-    # and see what's left
+    # If there are multiple items for the PID, we filter out the "documents" 
+    # and the record types without descriptive metadata.
     elif mediahaven_result.total_nr_of_results > 1:
-        records_minus_documents = [
+        record_types_to_filter = ["Media", "NewspaperPage", "BibliographicPage"]
+        filtered_records = [
             item
             for item in mediahaven_result
             if not item.Administrative.Type == "document"
+            and not item.Administrative.RecordType in record_types_to_filter
         ]
         # If there's only one record
-        if len(records_minus_documents) == 1:
-            original_fragment_id = records_minus_documents[0].Internal.FragmentId
+        if len(filtered_records) == 1:
+            original_fragment_id = filtered_records[0].Internal.FragmentId
         # If there's more then one record left we pick the "main fragment",
         # regardless of it's type. (Theoretically, zero records could remain
         # if all were of type "document".)
@@ -116,7 +118,7 @@ def determine_original_item(mediahaven_result: MediaHavenPageObject) -> str:
             original_fragment_id = next(
                 (
                     item.Internal.FragmentId
-                    for item in records_minus_documents
+                    for item in filtered_records
                     if not item.Internal.IsFragment
                 )
             )
