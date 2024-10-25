@@ -1,12 +1,11 @@
 {
-  "TotalNrOfResults": 2,
+  "TotalNrOfResults": 3,
   "StartIndex": 0,
   "Results": [
     {
       "Administrative": {
-        "Type": "document",
-        "RecordType": "Record"
-
+        "Type": "metadataonly",
+        "RecordType": "Media"
       },
       "Internal": {
         "IsFragment": false,
@@ -21,8 +20,24 @@
     },
     {
       "Administrative": {
-        "Type": "videofragment",
-        "RecordType": "Record"
+        "Type": "metadataonly",
+        "RecordType": "Basic"
+      },
+      "Internal": {
+        "IsFragment": false,
+        "FragmentId": "911590738667861623378452998032598893744975670506425831782315371606163411184739903652215505881300"
+      },
+      "Dynamic": {},
+      "Technical": {},
+      "RightsManagement": {},
+      "Descriptive": {},
+      "Structural": {},
+      "Context": {}
+    },
+    {
+      "Administrative": {
+        "Type": "metadataonly",
+        "RecordType": "Media"
       },
       "Internal": {
         "IsFragment": true,
