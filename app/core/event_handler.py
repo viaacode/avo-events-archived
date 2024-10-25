@@ -82,6 +82,7 @@ def determine_original_item(mediahaven_result: MediaHavenPageObject) -> str:
     The - proposed - heuristic is:
     - if only one result, return
     - if more then one result: filter out `type=document` (ie., the collaterals)
+      and record types without descriptive metadata (Media, NewspaperPage, BibliographicPage)
         - if only one item left: return
         - if more then one item left: return main fragment
 
