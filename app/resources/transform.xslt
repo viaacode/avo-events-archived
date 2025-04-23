@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:mh="https://zeticon.mediahaven.com/metadata/24.1/mh/"
-    xmlns:mhs="https://zeticon.mediahaven.com/metadata/24.1/mhs/"
+    xmlns:mh="https://zeticon.mediahaven.com/metadata/25.1/mh/"
+    xmlns:mhs="https://zeticon.mediahaven.com/metadata/25.1/mhs/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <xsl:output method="xml" encoding="UTF-8" byte-order-mark="no" indent="yes" />
     <xsl:template match="/">
-        <mhs:Sidecar xmlns:mhs="https://zeticon.mediahaven.com/metadata/24.1/mhs/"
-            xmlns:mh="https://zeticon.mediahaven.com/metadata/24.1/mh/" version="24.1">
+        <mhs:Sidecar xmlns:mhs="https://zeticon.mediahaven.com/metadata/25.1/mhs/"
+            xmlns:mh="https://zeticon.mediahaven.com/metadata/25.1/mh/" version="25.1">
             <mhs:Descriptive>
                 <xsl:apply-templates select="//mhs:Descriptive/mh:Title" />
                 <xsl:apply-templates select="//mhs:Descriptive/mh:Description" />
