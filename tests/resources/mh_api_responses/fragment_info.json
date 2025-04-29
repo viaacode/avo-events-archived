@@ -64,7 +64,11 @@
         "IngestTape": null
     },
     "Dynamic": {
-        "dc_source": "s3_filename.mxf",
+        "dc_identifier_localids": {
+            "Bestandsnaam": [
+                "s3_filename.mxf"
+            ]
+        },
         "PID": "external_id",
         "s3_bucket": "ingest",
         "CP": "vrt",
