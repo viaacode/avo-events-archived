@@ -2,7 +2,7 @@ pytest==7.4.0
 black==23.7.0
 flake8==6.0.0
 pytest-mock==3.5.1
-mypy==0.800
+mypy==1.20.1
 isort==5.7.0
 autoflake==1.4
 pytest-cov==2.11.1
