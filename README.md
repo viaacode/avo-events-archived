@@ -9,7 +9,7 @@ This service queries MediaHaven for the original metdata and updates the new ite
 
 - Git
 - Docker (optional)
-- Python 3.7+
+- Python 3.12+
 - Access to the [meemoo PyPi](http://do-prd-mvn-01.do.viaa.be:8081)
 
 ## Usage

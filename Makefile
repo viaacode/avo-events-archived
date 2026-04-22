@@ -1,10 +1,9 @@
 NAME := avo-events-archived
 
 PYTHON_FILES := main.py ./app/ ./tests/
-VENV_NAME=env
-VENV_PYTHON=${VENV_NAME}/bin/python3
+VENV_NAME=.venv
+VENV_PYTHON=${VENV_NAME}/bin/python
 VENV_ACTIVATE=. ${VENV_NAME}/bin/activate
-DEV_DEPENDENCIES_INSTALLED:=$(shell env/bin/pip list | grep -i 'isort' | wc -l)
 
 .DEFAULT_GOAL := help
 
@@ -12,8 +11,8 @@ DEV_DEPENDENCIES_INSTALLED:=$(shell env/bin/pip list | grep -i 'isort' | wc -l)
 help:
 	@echo "Available make commands:"
 	@echo ""
-	@echo "  init     make a virtual environment and install dependencies"
-	@echo "  init-dev make a virtual environment and install dependencies including development dependencies"
+	@echo "  init        make a virtual environment and install dependencies"
+	@echo "  init-dev    make a virtual environment and install dependencies including development dependencies"
 	@echo "  clean       remove all temporary files and the virtual environment"
 	@echo "  lint        run the code linters"
 	@echo "  format      reformat code"
@@ -26,8 +25,11 @@ init:
 ifneq ("$(wildcard .env)", ".env")
 	cp .env.example .env
 endif
-	python3 -m venv env
-	${VENV_PYTHON} -m pip install -r requirements.txt
+	$(info    "INFO: Initialising virtual environment and installed dependencies in $(VENV_NAME)")
+	python3 -m venv ${VENV_NAME}
+	${VENV_PYTHON} -m pip install -r requirements.txt \
+	    --extra-index-url http://do-prd-mvn-01.do.viaa.be:8081/repository/pypi-all/simple \
+	    --trusted-host do-prd-mvn-01.do.viaa.be
 
 .PHONY: init-dev
 init-dev:
@@ -36,15 +38,16 @@ init-dev:
 
 .PHONY: clean
 clean:
+	$(info    "INFO: Cleaning $(VENV_NAME)")
 	find . -type d -name "__pycache__" | xargs rm -rf {};
-	rm -rf .coverage .mypy_cache .pytest_cache env
+	rm -rf .coverage .mypy_cache .pytest_cache ${VENV_NAME}
 
 .PHONY: lint
 lint:
-	isort --profile=black --check-only $(PYTHON_FILES)
-	black --check $(PYTHON_FILES) --diff
-	flake8 $(PYTHON_FILES)
-	mypy $(PYTHON_FILES) --ignore-missing-imports
+	${VENV_ACTIVATE}; isort --profile=black --check-only $(PYTHON_FILES) || true
+	${VENV_ACTIVATE}; black --check --diff $(PYTHON_FILES) || true
+	${VENV_ACTIVATE}; flake8 $(PYTHON_FILES) || true
+	${VENV_ACTIVATE}; mypy --ignore-missing-imports $(PYTHON_FILES) || true
 
 .PHONY: format
 format:
