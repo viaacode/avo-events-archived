@@ -1,4 +1,4 @@
-from fastapi import APIRouter, BackgroundTasks, Depends
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from viaa.configuration import ConfigParser
 from viaa.observability import logging
 from mediahaven import MediaHaven
@@ -29,19 +29,19 @@ async def handle_events(
     """
     Returns OK if the xml parsing didn't crash.
     """
-    events = premis_events.events
-
-    archived_events = [
-        event for event in events if event.is_valid and event.has_valid_outcome
-    ]
-
-    log.debug(
-        f"Got {len(events)} PREMIS-event(s) of which {len(archived_events)} archived-event(s) with outcome OK."
-    )
-
-    for event in archived_events:
-        background_tasks.add_task(handle_event, event, mh_client)
-
-    return {
-        "message": f"Updating {len(archived_events)} item(s) with metadata from the original fragment in the background."
-    }
+    log.debug("Returned premis_events: '%s'" % premis_events)
+    if premis_events:
+        events = premis_events.events
+        archived_events = [
+            event for event in events if event.is_valid and event.has_valid_outcome
+        ]
+        log.debug(
+            f"Got {len(events)} PREMIS-event(s) of which {len(archived_events)} archived-event(s) with outcome OK."
+        )
+        for event in archived_events:
+            background_tasks.add_task(handle_event, event, mh_client)
+        return {
+            "message": f"Updating {len(archived_events)} item(s) with metadata from the original fragment in the background."
+        }
+    else:
+        raise HTTPException(status_code=400, detail="Could not validate or parse request body.")
