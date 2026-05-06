@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# Std
 from io import BytesIO
-
+# 3rd
 from lxml import etree
+# meemoo
+from viaa.configuration import ConfigParser
+from viaa.observability import logging
+
+
+config = ConfigParser()
+log = logging.get_logger(__name__, config=config)
 
 # Constants
 PREMIS_NAMESPACE = "info:lc/xmlns/premis-v2"
@@ -27,7 +35,17 @@ XPATHS = {
 
 
 def parse_premis_events(input_xml: bytes):
-    tree = etree.parse(BytesIO(input_xml))
+    log.debug("input_xml: %s" % input_xml)
+    try:
+        assert input_xml, "input_xml is empty?"
+    except AssertionError as e:
+        log.error("Missing request body: %s" % e)
+        return None
+    try:
+        tree = etree.parse(BytesIO(input_xml))
+    except etree.XMLSyntaxError as e:
+        log.error("Unparsable XML: %s" % e)
+        return None
 
     elements = tree.xpath("/events/p:event", namespaces={"p": PREMIS_NAMESPACE})
 
