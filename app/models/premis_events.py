@@ -9,7 +9,7 @@ class PremisEvent(BaseModel):
     event_detail: Optional[str]
     event_id: str
     event_outcome: str
-    mediahaven_id: str
+    mediahaven_id: Optional[str]
     external_id: str
     is_valid: bool
     has_valid_outcome: bool
