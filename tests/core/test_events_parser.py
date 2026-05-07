@@ -81,9 +81,12 @@ def test_multi_event():
     assert p["events"][2]["is_valid"]
 
 
-def test_invalid_xml_event():
-    with pytest.raises(XMLSyntaxError):
-        parse_premis_events(invalid_xml_event)
+def test_invalid_xml_event(caplog):
+    p = parse_premis_events(invalid_xml_event)
+    assert p is None
+    assert "error" in [record.levelname.lower() for record in caplog.records]
+    err_rec = [rec for rec in caplog.records if rec.levelname.lower() == "error"][0]
+    assert "Unparsable XML" in err_rec.message
 
 
 def test_single_event_no_external_id():
