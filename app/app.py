@@ -16,7 +16,7 @@ log = logging.get_logger(__name__, config=config)
 _mediahaven_client: MediaHaven = None
 
 def mask(input_string: str):
-    return '***'.join([input_string[0:3], input_string[-3:]])
+    return '***'.join([input_string[0:2], input_string[-2:]])
 
 @app.on_event("startup")
 async def startup_event():
@@ -25,7 +25,7 @@ async def startup_event():
     client_id = mediahaven_config["client_id"]
     client_secret = mediahaven_config["client_secret"]
     user = mediahaven_config["username"]
-    log.debug("Using username '%s'" % user)
+    log.debug("Using username '%s'" % mask(user))
     password = mediahaven_config["password"]
     url = mediahaven_config["host"]
     log.debug("Using client_id '%s'" % mask(client_id))
