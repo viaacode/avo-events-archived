@@ -13,5 +13,4 @@ async def liveness_check():
     """
     Returns OK if the service is running.
     """
-    log.debug("Health/live called")
     return "OK"
