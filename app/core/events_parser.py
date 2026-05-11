@@ -36,10 +36,8 @@ XPATHS = {
 
 def parse_premis_events(input_xml: bytes):
     log.debug("input_xml: %s" % input_xml)
-    try:
-        assert input_xml, "input_xml is empty?"
-    except AssertionError as e:
-        log.error("Missing request body: %s" % e)
+    if not input_xml:
+        log.error("Missing request body")
         return None
     try:
         tree = etree.parse(BytesIO(input_xml))
