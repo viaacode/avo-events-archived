@@ -129,6 +129,8 @@ pipeline {
             post {
                 always {
                     script {
+                        sh 'git config --global --add safe.directory "*"' 
+
                         previous_tag = sh(script: 'git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`', returnStdout: true).trim()
                         echo getAllCommitsBetweenTags(previous_tag, env.TAG_NAME)
                     }
@@ -183,6 +185,7 @@ void setGitHubBuildStatus(String message, String state) {
 }
 
 void getAllCommitsBetweenTags(String from, String to) {
+    sh 'git config --global --add safe.directory "*"'
     commit_messages = sh(script: "git log ${from}...${to} --merges --format=%b", returnStdout: true)
 
     return commit_messages
