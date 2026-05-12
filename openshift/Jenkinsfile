@@ -48,7 +48,7 @@ pipeline {
                         // The name used for the build config based on the image tag
                         // Replace '.' with '_' as '.' is not allowed.
                         env.BUILD_CONFIG_NAME = sh(script: 'echo "${IMAGE_TAG}" | sed -r "s/\\./\\-/g"', returnStdout: true)
-                        sh 'git config --global --add safe.directory /home/jenkins/agent/workspace'
+                        sh 'git config --global --add safe.directory "/home/jenkins/agent/workspace/*"'
 
                     }
 
